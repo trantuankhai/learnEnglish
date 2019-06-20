@@ -1,4 +1,4 @@
-package com.vn.tdk.learnenglish.Dao;
+package com.vn.tdk.learnenglish.dao;
 
 import java.util.List;
 
