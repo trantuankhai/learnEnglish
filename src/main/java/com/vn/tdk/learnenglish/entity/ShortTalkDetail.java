@@ -18,10 +18,9 @@ public class ShortTalkDetail implements Serializable {
 	private String correctanswer;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-		@JoinColumn(name = "testid", insertable = false, updatable = false),
+		//@JoinColumn(name = "testid", insertable = false, updatable = false),
 		@JoinColumn(name = "shorttalkid", insertable = false, updatable = false)
 	})
-	@Id
 	private ShortTalk shortTalk;
 	
 	public ShortTalkDetail() {

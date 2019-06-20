@@ -10,11 +10,11 @@ import javax.persistence.*;
 @Entity(name="readingcomprehension")
 public class ReadingComprehension implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="readingcomprehensionid")
 	private int readingcomprehensionid;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "testid")
-	@Id
 	private Test test;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "readingComprehension", cascade = CascadeType.ALL)
 	private List<ReadingComprehensionDetail> readingComprehensionDetails = new ArrayList<ReadingComprehensionDetail>();

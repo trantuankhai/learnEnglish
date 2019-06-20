@@ -1,7 +1,6 @@
 package com.vn.tdk.learnenglish.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -10,16 +9,16 @@ import javax.persistence.*;
 @Entity(name="shortconversation")
 public class ShortConversation implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="shortconversationid")
 	private int shortconversationid;
 	@Column(name="script")
 	private String script;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "testid")
-	@Id
 	private Test test;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "shortConversation", cascade = CascadeType.ALL)
-	private List<ShortConversationDetail> shortConversationDetails = new ArrayList<ShortConversationDetail>();
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "shortConversation", cascade = CascadeType.ALL)
+//	private List<ShortConversationDetail> shortConversationDetails = new ArrayList<ShortConversationDetail>();
 	
 	public ShortConversation() {
 		super();
@@ -30,7 +29,7 @@ public class ShortConversation implements Serializable {
 		this.shortconversationid = shortconversationid;
 		this.script = script;
 		this.test = test;
-		this.shortConversationDetails = shortConversationDetails;
+	//	this.shortConversationDetails = shortConversationDetails;
 	}
 	public int getShortconversationid() {
 		return shortconversationid;
@@ -50,10 +49,10 @@ public class ShortConversation implements Serializable {
 	public void setTest(Test test) {
 		this.test = test;
 	}
-	public List<ShortConversationDetail> getShortConversationDetails() {
-		return shortConversationDetails;
-	}
-	public void setShortConversationDetails(List<ShortConversationDetail> shortConversationDetails) {
-		this.shortConversationDetails = shortConversationDetails;
-	}
+//	public List<ShortConversationDetail> getShortConversationDetails() {
+//		return shortConversationDetails;
+//	}
+//	public void setShortConversationDetails(List<ShortConversationDetail> shortConversationDetails) {
+//		this.shortConversationDetails = shortConversationDetails;
+//	}
 }

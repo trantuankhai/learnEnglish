@@ -9,14 +9,13 @@ import javax.persistence.*;
 @Entity(name="myscore")
 public class MyScore implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="myscoreid")
 	private int myscoreid;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="email")
-	@Id
+	@JoinColumn(name="userID")
 	private User user;
-	
 	@Column(name="testid")
 	private int testid;
 	@Column(name="score")

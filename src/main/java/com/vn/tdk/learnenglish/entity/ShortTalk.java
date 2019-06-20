@@ -10,13 +10,13 @@ import javax.persistence.*;
 @Entity(name="shorttalk")
 public class ShortTalk implements Serializable {
 	@Id
-	@Column(name="shorttalkid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="shorttalkid" )
 	private int shorttalkid;
 	@Column(name="script")
 	private String script;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "testid")
-	@Id
 	private Test test;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "shortTalk", cascade = CascadeType.ALL)
 	private List<ShortTalkDetail> shortTalkDetails = new ArrayList<ShortTalkDetail>();

@@ -13,12 +13,12 @@ import com.vn.tdk.learnenglish.entity.*;
 public class UserDao {
 	private final static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-	public static List<User> listDeparts() {
+	public static List<Activity> listDeparts() {
 		Session session = sessionFactory.openSession();
-		List<User> listDeparts = null;
+		List<Activity> listDeparts = null;
 		try {
 			session.getTransaction().begin();
-			Query<User> query = session.createQuery("from "+User.class.getName());
+			Query<Activity> query = session.createQuery("from "+Activity.class.getName());
 			listDeparts = query.list();
 			session.getTransaction().commit();
 
@@ -32,6 +32,6 @@ public class UserDao {
 		return listDeparts;
 	}
 	public static void main(String[] args) {
-		List<User> users = listDeparts();
+		List<Activity> users = listDeparts();
 	}
 }

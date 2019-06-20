@@ -10,16 +10,16 @@ import javax.persistence.*;
 @Entity(name="textcompletion")
 public class TextCompletion implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="textcompletionid")
 	private int textcompletionid;
 	@Column(name="script")
 	private String script;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "testid")
-	@Id
-	private Test test;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "textCompletion", cascade = CascadeType.ALL)
-	private List<TextCompletionDetail> textCompletionDetails = new ArrayList<TextCompletionDetail>();
+	private Test test;	
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "textCompletion", cascade = CascadeType.ALL)
+//	private List<TextCompletionDetail> textCompletionDetails = new ArrayList<TextCompletionDetail>();
 
 	public TextCompletion() {
 		super();
@@ -30,7 +30,7 @@ public class TextCompletion implements Serializable {
 		this.textcompletionid = textcompletionid;
 		this.script = script;
 		this.test = test;
-		this.textCompletionDetails = textCompletionDetails;
+	//	this.textCompletionDetails = textCompletionDetails;
 	}
 	public int getTextcompletionid() {
 		return textcompletionid;
@@ -50,10 +50,10 @@ public class TextCompletion implements Serializable {
 	public void setTest(Test test) {
 		this.test = test;
 	}
-	public List<TextCompletionDetail> getTextCompletionDetails() {
-		return textCompletionDetails;
-	}
-	public void setTextCompletionDetails(List<TextCompletionDetail> textCompletionDetails) {
-		this.textCompletionDetails = textCompletionDetails;
-	}
+//	public List<TextCompletionDetail> getTextCompletionDetails() {
+//		return textCompletionDetails;
+//	}
+//	public void setTextCompletionDetails(List<TextCompletionDetail> textCompletionDetails) {
+//		this.textCompletionDetails = textCompletionDetails;
+//	}
 }

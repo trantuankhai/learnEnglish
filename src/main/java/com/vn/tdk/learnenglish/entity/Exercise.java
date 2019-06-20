@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Entity(name="exercise")
 public class Exercise implements Serializable{
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="exerciseid")
 	private int exerciseid;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "grammarid")
-	@Id
 	private Grammar grammar;
 	@Column(name="question")
 	private String question;

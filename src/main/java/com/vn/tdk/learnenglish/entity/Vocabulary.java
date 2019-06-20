@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "vocabulary")
 public class Vocabulary {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="vocabularyid")
 	private int vocabularyid;
 	@Column(name="vocabularyname")

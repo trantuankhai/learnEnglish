@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity(name="photo")
 public class Photo implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="photoid")
 	private int photoid;
 	@Column(name="answer")
@@ -20,7 +21,6 @@ public class Photo implements Serializable {
 //	private String video;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "testid")
-	@Id
 	private Test test;
 	
 	public Photo() {

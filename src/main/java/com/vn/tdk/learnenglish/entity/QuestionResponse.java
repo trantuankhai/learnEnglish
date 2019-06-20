@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity(name="questionresponse")
 public class QuestionResponse implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="questionresponseid")
 	private int questionresponseid;
 	@Column(name="question")
@@ -18,7 +19,6 @@ public class QuestionResponse implements Serializable {
 	private String correctanswer;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "testid")
-	@Id
 	private Test test;
 	
 	public QuestionResponse() {

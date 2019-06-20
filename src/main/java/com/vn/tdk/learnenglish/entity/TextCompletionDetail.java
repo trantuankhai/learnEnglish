@@ -15,10 +15,9 @@ public class TextCompletionDetail implements Serializable {
 	private String correctanswer;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-		  @JoinColumn(name = "textcompletionid", insertable = false, updatable = false),
-		  @JoinColumn(name = "testid", insertable = false, updatable = false)
+		  @JoinColumn(name = "textcompletionid", insertable = false, updatable = false)
+		 // @JoinColumn(name = "testid", insertable = false, updatable = false)
 		})
-	@Id
 	private TextCompletion textCompletion;
 	
 	public TextCompletionDetail() {

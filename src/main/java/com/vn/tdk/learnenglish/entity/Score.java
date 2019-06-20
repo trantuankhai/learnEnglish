@@ -5,11 +5,12 @@ import javax.persistence.*;
 @Entity(name="score")
 public class Score {
 	@Id
-	@Column(name="id")
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idScore")
+	private int idScore;
 	@Column(name="list")
 	private int list;
-	@Column(name="read")
+	@Column(name="readEnglish")
 	private int read;
 	
 	public Score() {
@@ -17,15 +18,15 @@ public class Score {
 	}
 	public Score(int id, int list, int read) {
 		super();
-		this.id = id;
+		this.idScore = id;
 		this.list = list;
 		this.read = read;
 	}
 	public int getId() {
-		return id;
+		return idScore;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.idScore = id;
 	}
 	public int getList() {
 		return list;

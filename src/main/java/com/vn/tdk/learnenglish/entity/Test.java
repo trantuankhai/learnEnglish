@@ -1,4 +1,4 @@
-package kltn.toeic.model;
+package com.vn.tdk.learnenglish.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity(name = "test")
 public class Test implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "testid")
 	private int testid;
 	@Column(name = "testname")
@@ -19,20 +19,20 @@ public class Test implements Serializable {
 	private int enable;
 	@Column(name = "level")
 	private String level;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
-	private List<Photo> photos = new ArrayList<Photo>();
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
-	private List<IncompleteSentence> incompleteSentences;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
-	private List<QuestionResponse> questionResponses;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
-	private List<ShortConversation> shortConversations;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
-	private List<ShortTalk> shortTalks;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
-	private List<TextCompletion> textCompletions;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
-	private List<ReadingComprehension> readingComprehensions;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
+//	private List<Photo> photos = new ArrayList<Photo>();
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
+//	private List<IncompleteSentence> incompleteSentences;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
+//	private List<QuestionResponse> questionResponses;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
+//	private List<ShortConversation> shortConversations;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
+//	private List<ShortTalk> shortTalks;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
+//	private List<TextCompletion> textCompletions;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
+//	private List<ReadingComprehension> readingComprehensions;
 
 	public Test() {
 		super();
@@ -49,13 +49,13 @@ public class Test implements Serializable {
 		this.testname = testname;
 		this.enable = enable;
 		this.level = level;
-		this.photos = photos;
-		this.incompleteSentences = incompleteSentences;
-		this.questionResponses = questionResponses;
-		this.shortConversations = shortConversations;
-		this.shortTalks = shortTalks;
-		this.textCompletions = textCompletions;
-		this.readingComprehensions = readingComprehensions;
+//		this.photos = photos;
+//		this.incompleteSentences = incompleteSentences;
+//		this.questionResponses = questionResponses;
+//		this.shortConversations = shortConversations;
+//		this.shortTalks = shortTalks;
+//		this.textCompletions = textCompletions;
+//		this.readingComprehensions = readingComprehensions;
 	}
 
 	public int getTestid() {
@@ -90,61 +90,61 @@ public class Test implements Serializable {
 		this.level = level;
 	}
 
-	public List<Photo> getPhotos() {
-		return photos;
-	}
+//	public List<Photo> getPhotos() {
+//		return photos;
+//	}
+//
+//	public void setPhotos(List<Photo> photos) {
+//		this.photos = photos;
+//	}
+//
+//	public List<IncompleteSentence> getIncompleteSentences() {
+//		return incompleteSentences;
+//	}
+//
+//	public void setIncompleteSentences(
+//			List<IncompleteSentence> incompleteSentences) {
+//		this.incompleteSentences = incompleteSentences;
+//	}
+//
+//	public List<QuestionResponse> getQuestionResponses() {
+//		return questionResponses;
+//	}
+//
+//	public void setQuestionResponses(List<QuestionResponse> questionResponses) {
+//		this.questionResponses = questionResponses;
+//	}
+//
+//	public List<ShortConversation> getShortConversations() {
+//		return shortConversations;
+//	}
 
-	public void setPhotos(List<Photo> photos) {
-		this.photos = photos;
-	}
-
-	public List<IncompleteSentence> getIncompleteSentences() {
-		return incompleteSentences;
-	}
-
-	public void setIncompleteSentences(
-			List<IncompleteSentence> incompleteSentences) {
-		this.incompleteSentences = incompleteSentences;
-	}
-
-	public List<QuestionResponse> getQuestionResponses() {
-		return questionResponses;
-	}
-
-	public void setQuestionResponses(List<QuestionResponse> questionResponses) {
-		this.questionResponses = questionResponses;
-	}
-
-	public List<ShortConversation> getShortConversations() {
-		return shortConversations;
-	}
-
-	public void setShortConversations(List<ShortConversation> shortConversations) {
-		this.shortConversations = shortConversations;
-	}
-
-	public List<ShortTalk> getShortTalks() {
-		return shortTalks;
-	}
-
-	public void setShortTalks(List<ShortTalk> shortTalks) {
-		this.shortTalks = shortTalks;
-	}
-
-	public List<TextCompletion> getTextCompletions() {
-		return textCompletions;
-	}
-
-	public void setTextCompletions(List<TextCompletion> textCompletions) {
-		this.textCompletions = textCompletions;
-	}
-
-	public List<ReadingComprehension> getReadingComprehensions() {
-		return readingComprehensions;
-	}
-
-	public void setReadingComprehensions(
-			List<ReadingComprehension> readingComprehensions) {
-		this.readingComprehensions = readingComprehensions;
-	}
+//	public void setShortConversations(List<ShortConversation> shortConversations) {
+//		this.shortConversations = shortConversations;
+//	}
+//
+//	public List<ShortTalk> getShortTalks() {
+//		return shortTalks;
+//	}
+//
+//	public void setShortTalks(List<ShortTalk> shortTalks) {
+//		this.shortTalks = shortTalks;
+//	}
+//
+//	public List<TextCompletion> getTextCompletions() {
+//		return textCompletions;
+//	}
+//
+//	public void setTextCompletions(List<TextCompletion> textCompletions) {
+//		this.textCompletions = textCompletions;
+//	}
+//
+//	public List<ReadingComprehension> getReadingComprehensions() {
+//		return readingComprehensions;
+//	}
+//
+//	public void setReadingComprehensions(
+//			List<ReadingComprehension> readingComprehensions) {
+//		this.readingComprehensions = readingComprehensions;
+//	}
 }

@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity(name="readingcomprehensiondetail")
 public class ReadingComprehensionDetail implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	@Column(name="question")
@@ -18,10 +19,9 @@ public class ReadingComprehensionDetail implements Serializable {
 	private String correctanswer;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-		  @JoinColumn(name = "testid", insertable = false, updatable = false),
+		//  @JoinColumn(name = "testid", insertable = false, updatable = false),
 		  @JoinColumn(name = "readingcomprehensionid", insertable = false, updatable = false)
 		})
-	@Id
 	private ReadingComprehension readingComprehension;
 	
 	public ReadingComprehensionDetail() {

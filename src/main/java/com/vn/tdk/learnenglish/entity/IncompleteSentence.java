@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity(name="incompletesentence")
 public class IncompleteSentence implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="incompletesentenceid")
 	private int incompletesentenceid;
 	@Column(name="question")
@@ -18,7 +19,6 @@ public class IncompleteSentence implements Serializable {
 	private String correctanswer;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "testid")
-	@Id
 	private Test test;
 	
 	public IncompleteSentence() {
