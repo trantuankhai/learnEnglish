@@ -21,8 +21,8 @@
 		<property name="hibernate.connection.characterEncoding">UTF-8</property>
 		<property name="hibernate.connection.charSet">UTF-8</property>
 		<!-- Mapping file -->
-		 <mapping class="com.vn.tdk.learnenglish.entity.User" />
-		<mapping class="com.vn.tdk.learnenglish.entity.Activity" />
+		 <mapping class="com.vn.tdk.learnenglish.entity.Account" />
+		<!-- <mapping class="com.vn.tdk.learnenglish.entity.Activity" />
 		 <mapping class="com.vn.tdk.learnenglish.entity.MyScore" />
 		<mapping class="com.vn.tdk.learnenglish.entity.Exercise" />
 		<mapping class="com.vn.tdk.learnenglish.entity.Grammar" />
@@ -41,7 +41,7 @@
 		<mapping class="com.vn.tdk.learnenglish.entity.Test" />
 		<mapping class="com.vn.tdk.learnenglish.entity.TextCompletion" />
 		<mapping class="com.vn.tdk.learnenglish.entity.TextCompletionDetail" />
-		<mapping class="com.vn.tdk.learnenglish.entity.Vocabulary" />
+		<mapping class="com.vn.tdk.learnenglish.entity.Vocabulary" /> -->
 	</session-factory>
 </hibernate-configuration>
 

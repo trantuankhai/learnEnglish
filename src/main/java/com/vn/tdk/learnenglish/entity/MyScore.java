@@ -15,7 +15,7 @@ public class MyScore implements Serializable {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="userID")
-	private User user;
+	private Account user;
 	@Column(name="testid")
 	private int testid;
 	@Column(name="score")
@@ -26,7 +26,7 @@ public class MyScore implements Serializable {
 	public MyScore() {
 		super();
 	}
-	public MyScore(int myscoreid, User user, int testid, int score, Date timeTest) {
+	public MyScore(int myscoreid, Account user, int testid, int score, Date timeTest) {
 		super();
 		this.myscoreid = myscoreid;
 		this.user = user;
@@ -46,10 +46,10 @@ public class MyScore implements Serializable {
 	public void setMyscoreid(int myscoreid) {
 		this.myscoreid = myscoreid;
 	}
-	public User getUser() {
+	public Account getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(Account user) {
 		this.user = user;
 	}
 	public int getTestid() {

@@ -15,7 +15,7 @@ public class Activity implements Serializable {
 	private int activityid;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userID")
-	private User user;
+	private Account user;
 	@Column(name = "content", columnDefinition = "TEXT")
 	private String content;
 
@@ -26,7 +26,7 @@ public class Activity implements Serializable {
 		super();
 	}
 
-	public Activity(int activityid, String content, Date createDate, User user) {
+	public Activity(int activityid, String content, Date createDate, Account user) {
 		super();
 		this.activityid = activityid;
 		this.content = content;
@@ -58,11 +58,11 @@ public class Activity implements Serializable {
 		this.createDate = createDate;
 	}
 
-	public User getUser() {
+	public Account getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Account user) {
 		this.user = user;
 	}
 }
