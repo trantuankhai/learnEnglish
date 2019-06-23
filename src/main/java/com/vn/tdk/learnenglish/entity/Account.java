@@ -8,30 +8,29 @@ public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Id_Acount", nullable = false)
-	private final java.lang.Integer id_account;
+	private java.lang.Integer id_account;
 	@Column(name = "userName_Acount", nullable = false)
-	private final java.lang.String userName;
+	private  java.lang.String userName;
 	@Column(name = "passWord_Acount", nullable = false)
-	private final java.lang.String passWord;
+	private  java.lang.String passWord;
 	@Column(name = "fullName_Acount", nullable = false)
-	private final java.lang.String FullName;
-	@Column(name = "phone_Acount", nullable = false)
-	private final java.lang.String Phone;
+	private  java.lang.String FullName;
+	@Column(name = "phone_Acount")
+	private  java.lang.String Phone;
 	@Column(name = "address_Acount")
-	private final java.lang.String address;
+	private  java.lang.String address;
 	@Column(name = "email_Acount")
-	private final java.lang.String email_address;
+	private  java.lang.String email_address;
 	@Column(name = "sex_Acount")
-	private final java.lang.Integer sex;
+	private  java.lang.Integer sex;
 	@Column(name = "isActive")
-	private final java.lang.Integer isActive;
+	private  java.lang.Integer isActive;
 	@Column(name = "role_Acount")
-	private final java.lang.String role;
+	private  java.lang.String role;
 
-	public Account(Integer id_account, String userName, String passWord, String fullName, String phone, String address,
+	public Account(String userName, String passWord, String fullName, String phone, String address,
 			String email_address, Integer sex, Integer isActive, String role) {
 		super();
-		this.id_account = id_account;
 		this.userName = userName;
 		this.passWord = passWord;
 		FullName = fullName;
@@ -42,8 +41,52 @@ public class Account {
 		this.isActive = isActive;
 		this.role = role;
 	}
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public java.lang.Integer getId_account() {
+		return id_account;
+	}
+
+	public java.lang.String getUserName() {
+		return userName;
+	}
+
+	public java.lang.String getPassWord() {
+		return passWord;
+	}
+
+	public java.lang.String getFullName() {
+		return FullName;
+	}
+
+	public java.lang.String getPhone() {
+		return Phone;
+	}
+
+	public java.lang.String getAddress() {
+		return address;
+	}
+
+	public java.lang.String getEmail_address() {
+		return email_address;
+	}
+
+	public java.lang.Integer getSex() {
+		return sex;
+	}
+
+	public java.lang.Integer getIsActive() {
+		return isActive;
+	}
+
+	public java.lang.String getRole() {
+		return role;
+	}
 
 	public static class AcountBuilder {
+
 		private java.lang.Integer id_account;
 		private java.lang.String userName;
 		private java.lang.String passWord;
@@ -90,6 +133,12 @@ public class Account {
 		public AcountBuilder withRole(java.lang.String role) {
 			this.role = role;
 			return this;
+		}
+
+		public Account build() {
+			Account account = new Account(this.userName, this.passWord, this.FullName, this.Phone, this.address,
+					this.email_address, this.sex, this.isActive, this.role);
+			return account;
 		}
 	}
 
