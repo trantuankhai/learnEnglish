@@ -1,6 +1,5 @@
 package com.vn.tdk.learnenglish.mailServices;
 
-import java.util.List;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;

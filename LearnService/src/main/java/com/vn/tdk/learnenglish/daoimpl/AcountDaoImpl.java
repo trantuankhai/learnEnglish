@@ -52,8 +52,21 @@ public class AcountDaoImpl implements AcountDao {
 
 	@Override
 	public List<Account> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Account> acount = null;
+		session = sessionFactory.openSession();
+		String hql = "from " + Account.class.getName();
+		try {
+			transaction = session.beginTransaction();
+			acount = session.createQuery(hql.toString()).list();
+			transaction.commit();
+		} catch (HibernateException e) {
+			if (transaction != null)
+				transaction.rollback();
+		} finally {
+			session.close();
+		}
+		return acount;
+
 	}
 
 	@Override
@@ -121,6 +134,29 @@ public class AcountDaoImpl implements AcountDao {
 			transaction = session.beginTransaction();
 			account = (Account) session.createQuery(hql.toString()).setParameter("userName", userName)
 					.setParameter("passWord", passWord).uniqueResult();
+			transaction.commit();
+			return account;
+		} catch (HibernateException e) {
+			if (transaction != null)
+				transaction.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return null;
+	}
+
+	@Override
+	public Account getAcountByUserName(String userName) {
+		session = sessionFactory.openSession();
+		StringBuilder hql = new StringBuilder();
+		hql.append("from " + Account.class.getName() + " ac");
+		hql.append(" where ac.userName = :userName ");
+		Account account = null;
+		try {
+			transaction = session.beginTransaction();
+			account = (Account) session.createQuery(hql.toString()).setParameter("userName", userName).uniqueResult();
 			transaction.commit();
 			return account;
 		} catch (HibernateException e) {

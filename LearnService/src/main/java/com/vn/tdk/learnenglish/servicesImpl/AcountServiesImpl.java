@@ -47,8 +47,7 @@ public class AcountServiesImpl implements AcountServices {
 
 	@Override
 	public List<Account> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return acountDao.getAll();
 	}
 
 	@Override
@@ -56,6 +55,8 @@ public class AcountServiesImpl implements AcountServices {
 		if (ConstanValue.NULL_VALUE.equals(username) || ConstanValue.NULL_VALUE.equals(Email)
 				|| ConstanValue.NULL_VALUE.equals(fullname) || ConstanValue.NULL_VALUE.equals(passWord)) {
 			return Status.ERROR_ADD_NULL;
+		} else if (getAcountByUserName(username) != null) {
+			return Status.ACOUNT_EXITS;
 		} else {
 			String passWordHash = getHashPasswordMD5(passWord);
 			Integer id_acount = acountDao.register(username, Email, fullname, passWordHash);
@@ -117,6 +118,15 @@ public class AcountServiesImpl implements AcountServices {
 			} else {
 				return Status.ACOUNT_NOT_AVALABLE;
 			}
+		}
+	}
+
+	@Override
+	public Account getAcountByUserName(String userName) {
+		if (!ConstanValue.NULL_VALUE.equals(userName)) {
+			return acountDao.getAcountByUserName(userName);
+		} else {
+			return null;
 		}
 	}
 

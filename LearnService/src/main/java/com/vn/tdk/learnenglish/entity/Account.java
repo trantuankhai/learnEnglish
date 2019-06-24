@@ -11,7 +11,7 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Id_Acount", nullable = false)
 	private java.lang.Integer id_account;
-	@Column(name = "userName_Acount", nullable = false)
+	@Column(name = "userName_Acount", nullable = false ,unique = true)
 	private  java.lang.String userName;
 	@Column(name = "passWord_Acount", nullable = false)
 	private  java.lang.String passWord;

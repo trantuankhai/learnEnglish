@@ -8,4 +8,6 @@ public interface AcountServices extends services<Account> {
 	public String activeAcount(Integer id_acount);
 
 	public String logInWhithAcount(String userName, String passWord);
+
+	public Account getAcountByUserName(String userName);
 }
