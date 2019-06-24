@@ -8,7 +8,7 @@ public interface TempleteDao<T> {
 
 	public String edit(T object);
 
-	public String delete(T object);
+	public String delete(Integer id);
 
 	public List<T> getAll();
 
