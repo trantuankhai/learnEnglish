@@ -22,7 +22,7 @@ public class AcountController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "acount/register")
-	public Integer register(@RequestParam("username") String userName ,@RequestParam("passWord") String passWord,@RequestParam("email") String email,@RequestParam("fullname") String fullname) {
+	public Integer register(@RequestParam("userName") String userName ,@RequestParam("passWord") String passWord,@RequestParam("email") String email,@RequestParam("fullName") String fullname) {
 		return acountServices.register(userName, email, fullname, passWord);
 	}
 	@RequestMapping(method = RequestMethod.GET,value = "acount/active/{id_acount}")

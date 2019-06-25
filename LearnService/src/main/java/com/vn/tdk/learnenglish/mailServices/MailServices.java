@@ -33,7 +33,7 @@ public class MailServices {
 		StringBuilder content = new StringBuilder();
 						content.append("<h2>Wellcome</h2>");
 						content.append("<p>Thannk for signup platform learn english.</p>");
-						content.append("<p>Please follow <a href = \"https://localhost:8010/acount/active/"+id_acount+"\">link </a> to active account </p>");
+						content.append("<p>Please follow <a href = \"http://localhost:8010/acount/active/"+id_acount+"\">link </a> to active account </p>");
 						content.append("Thanks.");
 		
 		Session session = Session.getInstance(configProperties(), new javax.mail.Authenticator() {
