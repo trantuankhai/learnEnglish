@@ -1,5 +1,8 @@
 'use strict' 
-var loginApp = angular.module('appLogin', ['ngRoute']);
+var loginApp = angular.module('appLogin', ['ngRoute','registerServices']);
+loginApp.run( function($rootScope){
+		$rootScope.link = "http://localhost:8010/";
+});
 loginApp.config(function($routeProvider) {
 	$routeProvider.when("/", {
 		controller : 'loginController',

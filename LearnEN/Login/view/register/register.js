@@ -1,20 +1,13 @@
 loginApp.controller('registerController',  function($scope,$rootScope,$http){
 	$rootScope.link = "http://localhost:8010/";
-	$scope.register = function()
+	$scope.register = function(email , fullName , passWord , username)
 	{
 		var data =  $.param({
-					email:$scope.email,
-					fullname:$scope.fullName,
-					passWord:$scope.passWord,
-					username:$scope.userName
+					email:email,
+					fullname:fullName,
+					passWord:passWord,
+					username:username
 				});
-		$http.post($rootScope.link+"acount/register?"+data).then(
-			 function(res){
-				console.log(res.data);
-			}
-			,  function(error){
-				console.log(error);
-				alert('that bai');
-			})
+		$http.post($rootScope.link+"acount/register?"+data).then
 	}
 });
