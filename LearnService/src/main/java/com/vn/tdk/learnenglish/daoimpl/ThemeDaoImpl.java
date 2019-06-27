@@ -45,7 +45,6 @@ public class ThemeDaoImpl implements ThemeDao {
 		return null;
 	}
 
-
 	@SuppressWarnings("all")
 	@Override
 	public List<Theme> getAll() {
@@ -86,7 +85,41 @@ public class ThemeDaoImpl implements ThemeDao {
 
 	@Override
 	public String delete(Integer id) {
-		// TODO Auto-generated method stub
+		Theme theme = getByKey(id);
+		session = sessionFactory.openSession();
+		try {
+			transaction = session.getTransaction();
+			session.delete(theme);
+			transaction.commit();
+			return Status.SUCCESS;
+		} catch (HibernateException e) {
+			if (transaction != null)
+				transaction.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return Status.ERROR;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Theme> getThem(int min, int max) {
+		List<Theme> themes = null;
+		session = sessionFactory.openSession();
+		String hql = "from " + Theme.class.getName();
+		try {
+			transaction = session.getTransaction();
+			themes = session.createQuery(hql.toString()).setFirstResult(min).setMaxResults(max).list();
+			transaction.commit();
+			return themes;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
 		return null;
 	}
 

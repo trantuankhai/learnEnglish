@@ -1,7 +1,10 @@
 package com.vn.tdk.learnenglish.servicesImpl;
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,13 +33,26 @@ public class ThemeServicesImpl implements ThemeServices {
 	@Override
 	public String delete(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return themeDao.delete(id);
 	}
 
 	@Override
 	public List<Theme> getAll() {
 		// TODO Auto-generated method stub
 		return themeDao.getAll();
+	}
+
+	@Override
+	public List<Theme> getThem(int min, int max) {
+		// TODO Auto-generated method stub
+		return themeDao.getThem(min, max);
+	}
+
+	@Override
+	public String importDataFromExcel(String url)  {
+		// Create workbook from a file excel
+		Workbook workbook = WorkbookFactory.create(new File(url));
+		return null;
 	}
 
 }
