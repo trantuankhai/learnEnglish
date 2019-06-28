@@ -49,9 +49,8 @@ public class ThemeServicesImpl implements ThemeServices {
 	}
 
 	@Override
-	public String importDataFromExcel(String url)  {
+	public String importDataFromExcel(String url) {
 		// Create workbook from a file excel
-		Workbook workbook = WorkbookFactory.create(new File(url));
 		return null;
 	}
 
