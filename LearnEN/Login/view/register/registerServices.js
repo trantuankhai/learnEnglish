@@ -1,5 +1,5 @@
 'use strict'
-angular.module('registerServices',[]).factory('serviceSregister',['$http','$rootScope', function($http,$rootScope){
+angular.module('registerServices',[]).factory('serviceRegister',['$http','$rootScope', function($http,$rootScope){
  		var services = {register:register};
 		return services;
 	function register (email , fullName , passWord , userName ){

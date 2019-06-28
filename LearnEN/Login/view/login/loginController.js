@@ -2,7 +2,6 @@
 loginApp.controller('loginController', function($scope,$http,serviceLogin,$window,$interval){
 	$scope.login = function (){
 		serviceLogin.login($scope.passWord,$scope.userName).then(function(res){
-			console.log(res.data);
 			if(res.data == 'NONE_ACTIVE'){
 				swal({
 					title: "Tài khoản chưa được kích hoạt!",

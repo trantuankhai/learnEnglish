@@ -48,15 +48,15 @@ public class ThemeDaoImpl implements ThemeDao {
 	@SuppressWarnings("all")
 	@Override
 	public List<Theme> getAll() {
-		List<Theme> themes = null;
 		session = sessionFactory.openSession();
+		List<Theme> themes = null;
 		String hql = "from " + Theme.class.getName();
 		try {
-			transaction = session.getTransaction();
 			themes = session.createQuery(hql.toString()).list();
-			transaction.commit();
 			return themes;
 		} catch (HibernateException e) {
+			if (transaction != null)
+				transaction.rollback();
 			e.printStackTrace();
 		} finally {
 			session.close();
@@ -110,10 +110,7 @@ public class ThemeDaoImpl implements ThemeDao {
 		session = sessionFactory.openSession();
 		String hql = "from " + Theme.class.getName();
 		try {
-			transaction = session.getTransaction();
-			themes = session.createQuery(hql.toString()).setFirstResult(min).setMaxResults(max).list();
-			transaction.commit();
-			return themes;
+			return themes = session.createQuery(hql.toString()).setFirstResult(min).setMaxResults(max).list();
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
