@@ -12,10 +12,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
@@ -49,8 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/v2/api-docs")//
 				.antMatchers("/swagger-resources/**")//
 				.antMatchers("/swagger-ui.html")//
-				.antMatchers("/configuration/**")
-				.antMatchers("/webjars/**")//
+				.antMatchers("/configuration/**").antMatchers("/webjars/**")//
 				.antMatchers("/public");//
 	}
 
