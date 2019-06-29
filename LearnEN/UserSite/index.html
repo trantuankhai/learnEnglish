@@ -9,16 +9,33 @@
 		<link href="../Common/css/aos.css" rel="stylesheet">
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="../Common/css/aos.css" rel="stylesheet">
-		
+		<link rel="stylesheet" type="text/css" href="css/app/LearnEN.css">
 	</head>
-	<body>
+	<body ng-app="userSiteApp" >
 		<div class="container-fluid">
-			<div class="row"></div>
+			<div class="row k-headder">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+					<img src="../Common/images/logo.png" alt="placeholder+image" class="float-right">
+				</div>
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+					Menu
+				</div>
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+					Thông tin tìa khoản
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid k-main-content">
+			<div class="container" ng-view>
+			</div>
 		</div>
 		<script src="../Common/js/angular.js"></script>
 		<script src="../Common/js/angular-router.js"></script>
 		<script src="../Common/js/jquery.js"></script>
 		<script src="../Common/js/bootstrap.min.js"></script>
 		<script src="../Common/js/aos.js"></script>
+		<script src="../UserSite/js/app/userSite.js"></script>
+		<script src="../UserSite/view/maincontent/mainContentService.js"></script>
+		<script src="../UserSite/view/maincontent/mainContentController.js"></script>
 	</body>
 </html>

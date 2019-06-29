@@ -21,14 +21,14 @@ loginApp.controller('loginController', function($scope,$http,serviceLogin,$windo
 				
 			}else{
 				swal({
-					title: "Đăng ký thành công!",
-					text: "Kiểm tra email để kích hoạt!",
+					title: "Đăng nhập thành công!",
+					text: "Vui lòng chờ trong ít phút để vào hệ thống",
 					icon: "success",
 					button: "Xác nhận!",
 				});
 				var nextStep = setInterval(function()
 				{
-				$window.location.href='../Login';
+				$window.location.href="../UserSite";
 				},3000);
 
 			}
