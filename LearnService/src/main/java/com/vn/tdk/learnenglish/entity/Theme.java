@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -12,7 +13,8 @@ import javax.persistence.Table;
 @Table(name = "Tb_Theme")
 public class Theme {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TB_THEME_ENGLISH")
+	@SequenceGenerator(name = "SEQ_TB_THEME_ENGLISH", sequenceName = "SEQ_TB_THEME_ENGLISH", allocationSize = 1)
 	@Column(name = "id_theme", nullable = false)
 	private int id_theme;
 	@Column(name = "name_theme", nullable = false)

@@ -8,27 +8,28 @@ import com.vn.tdk.learnenglish.common.Role;
 @Table(name = "TB_Acount")
 public class Account {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TB_ACCOUNT")
+	@SequenceGenerator(name = "SEQ_TB_ACCOUNT", sequenceName = "SEQ_TB_ACCOUNT", allocationSize = 1)
 	@Column(name = "Id_Acount", nullable = false)
 	private java.lang.Integer id_account;
-	@Column(name = "userName_Acount", nullable = false ,unique = true)
-	private  java.lang.String userName;
+	@Column(name = "userName_Acount", nullable = false, unique = true)
+	private java.lang.String userName;
 	@Column(name = "passWord_Acount", nullable = false)
-	private  java.lang.String passWord;
+	private java.lang.String passWord;
 	@Column(name = "fullName_Acount", nullable = false)
-	private  java.lang.String FullName;
+	private java.lang.String FullName;
 	@Column(name = "phone_Acount")
-	private  java.lang.String Phone;
+	private java.lang.String Phone;
 	@Column(name = "address_Acount")
-	private  java.lang.String address;
+	private java.lang.String address;
 	@Column(name = "email_Acount")
-	private  java.lang.String email_address;
+	private java.lang.String email_address;
 	@Column(name = "sex_Acount")
-	private  java.lang.Integer sex;
+	private java.lang.Integer sex;
 	@Column(name = "isActive")
-	private  java.lang.Integer isActive;
+	private java.lang.Integer isActive;
 	@Column(name = "role_Acount")
-	private  Role role;
+	private Role role;
 
 	public Account(String userName, String passWord, String fullName, String phone, String address,
 			String email_address, Integer sex, Integer isActive, Role role) {
@@ -43,6 +44,7 @@ public class Account {
 		this.isActive = isActive;
 		this.role = role;
 	}
+
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
@@ -50,33 +52,43 @@ public class Account {
 	public void setId_account(java.lang.Integer id_account) {
 		this.id_account = id_account;
 	}
+
 	public void setUserName(java.lang.String userName) {
 		this.userName = userName;
 	}
+
 	public void setPassWord(java.lang.String passWord) {
 		this.passWord = passWord;
 	}
+
 	public void setFullName(java.lang.String fullName) {
 		FullName = fullName;
 	}
+
 	public void setPhone(java.lang.String phone) {
 		Phone = phone;
 	}
+
 	public void setAddress(java.lang.String address) {
 		this.address = address;
 	}
+
 	public void setEmail_address(java.lang.String email_address) {
 		this.email_address = email_address;
 	}
+
 	public void setSex(java.lang.Integer sex) {
 		this.sex = sex;
 	}
+
 	public void setIsActive(java.lang.Integer isActive) {
 		this.isActive = isActive;
 	}
+
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
 	public java.lang.Integer getId_account() {
 		return id_account;
 	}
@@ -113,7 +125,7 @@ public class Account {
 		return isActive;
 	}
 
-	public Role  getRole() {
+	public Role getRole() {
 		return role;
 	}
 
