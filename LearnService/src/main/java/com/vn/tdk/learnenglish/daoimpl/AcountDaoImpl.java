@@ -1,5 +1,6 @@
 package com.vn.tdk.learnenglish.daoimpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -83,7 +84,8 @@ public class AcountDaoImpl implements AcountDao {
 	@Override
 	public int register(String username, String Email, String fullname, String passWord) {
 		Account acount = new Account.AcountBuilder(username, passWord, Email).withFullName(fullname)
-				.withIsActive(Status.NONE_ACTIVE).withRole(Role.ROLE_USER).build();
+				.withIsActive(Status.NONE_ACTIVE).withRole(Role.ROLE_USER)
+				.withDateCreate(new Date().toString()).build();
 		Integer id = null;
 		session = sessionFactory.openSession();
 		try {

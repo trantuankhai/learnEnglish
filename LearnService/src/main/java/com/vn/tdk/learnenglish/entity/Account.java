@@ -30,9 +30,11 @@ public class Account {
 	private java.lang.Integer isActive;
 	@Column(name = "role_Acount")
 	private Role role;
+	@Column(name = "date_create")
+	private String date_create;
 
 	public Account(String userName, String passWord, String fullName, String phone, String address,
-			String email_address, Integer sex, Integer isActive, Role role) {
+			String email_address, Integer sex, Integer isActive, Role role,String date_create) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
@@ -43,6 +45,7 @@ public class Account {
 		this.sex = sex;
 		this.isActive = isActive;
 		this.role = role;
+		this.date_create = date_create;
 	}
 
 	public Account() {
@@ -141,6 +144,7 @@ public class Account {
 		private java.lang.Integer sex;
 		private java.lang.Integer isActive;
 		private Role role;
+		private String date_create;
 
 		public AcountBuilder(java.lang.String userName, java.lang.String passWord, java.lang.String email_address) {
 			this.userName = userName;
@@ -178,10 +182,14 @@ public class Account {
 			this.role = role;
 			return this;
 		}
+		public AcountBuilder withDateCreate(String date_create) {
+			this.date_create = date_create;
+			return this;
+		}
 
 		public Account build() {
 			Account account = new Account(this.userName, this.passWord, this.FullName, this.Phone, this.address,
-					this.email_address, this.sex, this.isActive, this.role);
+					this.email_address, this.sex, this.isActive, this.role,this.date_create);
 			return account;
 		}
 	}
