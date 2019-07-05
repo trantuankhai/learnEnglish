@@ -54,4 +54,10 @@ public class ThemeServicesImpl implements ThemeServices {
 		return null;
 	}
 
+	@Override
+	public Theme getByKey(int key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

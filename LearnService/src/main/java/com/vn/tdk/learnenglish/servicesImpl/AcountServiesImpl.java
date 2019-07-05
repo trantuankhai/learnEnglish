@@ -51,15 +51,19 @@ public class AcountServiesImpl implements AcountServices {
 	}
 
 	@Override
-	public int register(String username, String Email, String fullname, String passWord) {
-		if (ConstanValue.NULL_VALUE.equals(username) || ConstanValue.NULL_VALUE.equals(Email)
-				|| ConstanValue.NULL_VALUE.equals(fullname) || ConstanValue.NULL_VALUE.equals(passWord)) {
+	public int register(String username, String Email, String fullname,
+			String passWord) {
+		if (ConstanValue.NULL_VALUE.equals(username)
+				|| ConstanValue.NULL_VALUE.equals(Email)
+				|| ConstanValue.NULL_VALUE.equals(fullname)
+				|| ConstanValue.NULL_VALUE.equals(passWord)) {
 			return Status.ERROR_ADD_NULL;
 		} else if (getAcountByUserName(username) != null) {
 			return Status.ACOUNT_EXITS;
 		} else {
 			String passWordHash = getHashPasswordMD5(passWord);
-			Integer id_acount = acountDao.register(username, Email, fullname, passWordHash);
+			Integer id_acount = acountDao.register(username, Email, fullname,
+					passWordHash);
 			if (id_acount != Status.STATUS_ADD_ERROR) {
 				String statusSendMail = mailServices.sendMail(Email, id_acount);
 				return id_acount;
@@ -92,7 +96,6 @@ public class AcountServiesImpl implements AcountServices {
 
 	@Override
 	public String activeAcount(Integer id_acount) {
-		// TODO Auto-generated method stub
 		if (id_acount != null) {
 			return acountDao.activeAcount(id_acount);
 		} else {
@@ -103,11 +106,13 @@ public class AcountServiesImpl implements AcountServices {
 
 	@Override
 	public String logInWhithAcount(String userName, String passWord) {
-		if (ConstanValue.NULL_VALUE.equals(userName) || ConstanValue.NULL_VALUE.equals(passWord)) {
+		if (ConstanValue.NULL_VALUE.equals(userName)
+				|| ConstanValue.NULL_VALUE.equals(passWord)) {
 			return Status.INPUT_NULL;
 		} else {
 			String hashPassWord = getHashPasswordMD5(passWord);
-			Account account = acountDao.logInWhithAcount(userName, hashPassWord);
+			Account account = acountDao
+					.logInWhithAcount(userName, hashPassWord);
 			if (account != null) {
 				if (account.getIsActive() == Status.ACTIVE) {
 					return token.createToken(userName);
@@ -128,6 +133,12 @@ public class AcountServiesImpl implements AcountServices {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public Account getByKey(int key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

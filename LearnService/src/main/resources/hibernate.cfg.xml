@@ -21,6 +21,7 @@
 		<!-- Mapping file -->
 		<mapping class="com.vn.tdk.learnenglish.entity.Account" />
 		<mapping class="com.vn.tdk.learnenglish.entity.Theme" />
+		<mapping class="com.vn.tdk.learnenglish.entity.ActiveUser" />
 	</session-factory>
 </hibernate-configuration>
 

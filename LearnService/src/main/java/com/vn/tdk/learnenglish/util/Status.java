@@ -12,5 +12,6 @@ public interface Status {
 	public static final Integer ACOUNT_EXITS = -2;
 	public static final String ACOUNT_NOT_AVALABLE = "ACOUNT_NOT_AVALABLE";
 	public static final String INPUT_NULL = "INPUT_NULl";
+	public static final Object OBJECT_NULL = null;
 
 }
