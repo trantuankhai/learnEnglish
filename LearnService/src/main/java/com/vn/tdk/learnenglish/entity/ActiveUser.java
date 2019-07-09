@@ -14,8 +14,9 @@ import javax.persistence.Table;
 @Table(name = "TB_ACTIVER_USER")
 public class ActiveUser {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TB_ACTIVER_USER")
-	@SequenceGenerator(name = "SEQ_TB_ACTIVER_USER", sequenceName = "SEQ_TB_ACTIVER_USER", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TB_ACTIVER_USER")
+//	@SequenceGenerator(name = "SEQ_TB_ACTIVER_USER", sequenceName = "SEQ_TB_ACTIVER_USER", allocationSize = 1)
 	private int id_active_user;
 	@ManyToOne()
 	@JoinColumn(name = "Id_Acount", nullable = false)

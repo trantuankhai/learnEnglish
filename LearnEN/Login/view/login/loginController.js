@@ -26,6 +26,8 @@ loginApp.controller('loginController', function($scope,$http,serviceLogin,$windo
 					icon: "success",
 					button: "Xác nhận!",
 				});
+			//$http.defaults.headers.common.Authorization = 'Bearer ' +res.data;
+
 				var nextStep = setInterval(function()
 				{
 				$window.location.href="../UserSite";

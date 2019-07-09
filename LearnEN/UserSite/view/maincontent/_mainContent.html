@@ -1,8 +1,8 @@
 <h2 class="headline c-w structure__headline">Cấu trúc khóa học</h2>
 <div class="c-w text-center structure__description">Lộ trình khóa học gồm 185 bài học, 85 videos bài giảng và hỗ trợ giảng viên</div>
-<div class="structure__list" ng-controller="mainContentContrller">
+<div class="structure__list" ng-controller="mainContentContrller" data-aos="fade-down-right">
 	<div class="row row-flex row-flex-stretch">
-		<div class="col-xs-12 col-sm-6" ng-repeat="listContent in listContent">
+		<div class="col-xs-12 col-sm-12 col-md-6" ng-repeat="listContent in listContent">
 			<div class="clearfix structure__item">
 				<div class="structure__item-image">
 					<a href="{{listContent.short_url_theme}}">	<img src="{{listContent.image_descript_theme}}" alt=""></a>

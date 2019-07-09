@@ -8,8 +8,9 @@ import com.vn.tdk.learnenglish.common.Role;
 @Table(name = "TB_Acount")
 public class Account {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TB_ACCOUNT")
-	@SequenceGenerator(name = "SEQ_TB_ACCOUNT", sequenceName = "SEQ_TB_ACCOUNT", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TB_ACCOUNT")
+//	@SequenceGenerator(name = "SEQ_TB_ACCOUNT", sequenceName = "SEQ_TB_ACCOUNT", allocationSize = 1)
 	@Column(name = "Id_Acount", nullable = false)
 	private java.lang.Integer id_account;
 	@Column(name = "userName_Acount", nullable = false, unique = true)
@@ -22,6 +23,8 @@ public class Account {
 	private java.lang.String Phone;
 	@Column(name = "address_Acount")
 	private java.lang.String address;
+	@Column(name = "email_Avatar")
+	private java.lang.String avatar_address;
 	@Column(name = "email_Acount")
 	private java.lang.String email_address;
 	@Column(name = "sex_Acount")
