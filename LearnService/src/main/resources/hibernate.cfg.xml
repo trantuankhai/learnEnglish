@@ -22,6 +22,10 @@
 		<mapping class="com.vn.tdk.learnenglish.entity.Account" />
 		<mapping class="com.vn.tdk.learnenglish.entity.Theme" />
 		<mapping class="com.vn.tdk.learnenglish.entity.ActiveUser" />
+		<mapping class="com.vn.tdk.learnenglish.entity.FeedBack" />
+		<mapping class="com.vn.tdk.learnenglish.entity.Lesson" />
+		<mapping class="com.vn.tdk.learnenglish.entity.Question" />
+		<mapping class="com.vn.tdk.learnenglish.entity.QuestionDetail" />
 	</session-factory>
 </hibernate-configuration>
 

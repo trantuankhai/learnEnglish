@@ -23,8 +23,8 @@ public class Account {
 	private java.lang.String Phone;
 	@Column(name = "address_Acount")
 	private java.lang.String address;
-	@Column(name = "email_Avatar")
-	private java.lang.String avatar_address;
+	@Column(name = "Avatar")
+	private java.lang.String avatar;
 	@Column(name = "email_Acount")
 	private java.lang.String email_address;
 	@Column(name = "sex_Acount")
@@ -36,14 +36,17 @@ public class Account {
 	@Column(name = "date_create")
 	private String date_create;
 
-	public Account(String userName, String passWord, String fullName, String phone, String address,
-			String email_address, Integer sex, Integer isActive, Role role,String date_create) {
+
+
+	public Account( String userName, String passWord, String fullName, String phone, String address,
+			String avatar, String email_address, Integer sex, Integer isActive, Role role, String date_create) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
 		FullName = fullName;
 		Phone = phone;
 		this.address = address;
+		this.avatar = avatar;
 		this.email_address = email_address;
 		this.sex = sex;
 		this.isActive = isActive;
@@ -144,6 +147,7 @@ public class Account {
 		private java.lang.String Phone;
 		private java.lang.String address;
 		private java.lang.String email_address;
+		private java.lang.String avatar;
 		private java.lang.Integer sex;
 		private java.lang.Integer isActive;
 		private Role role;
@@ -170,6 +174,10 @@ public class Account {
 			this.address = address;
 			return this;
 		}
+		public AcountBuilder withAvatar(java.lang.String avatar) {
+			this.avatar = avatar;
+			return this;
+		}
 
 		public AcountBuilder withSex(java.lang.Integer sex) {
 			this.sex = sex;
@@ -191,7 +199,7 @@ public class Account {
 		}
 
 		public Account build() {
-			Account account = new Account(this.userName, this.passWord, this.FullName, this.Phone, this.address,
+			Account account = new Account(this.userName, this.passWord, this.FullName, this.Phone, this.address,this.avatar,
 					this.email_address, this.sex, this.isActive, this.role,this.date_create);
 			return account;
 		}
