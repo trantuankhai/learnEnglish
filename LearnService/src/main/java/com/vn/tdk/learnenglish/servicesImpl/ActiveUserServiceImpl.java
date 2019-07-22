@@ -44,4 +44,10 @@ public class ActiveUserServiceImpl implements ActiverUserServices {
 		return activeUserDao.getByKey(key);
 	}
 
+	@Override
+	public List<ActiveUser> getByUserName(int userName) {
+		// TODO Auto-generated method stub
+		return activeUserDao.getByUserName(userName);
+	}
+
 }

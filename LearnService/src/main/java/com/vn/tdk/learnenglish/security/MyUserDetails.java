@@ -15,22 +15,18 @@ import com.vn.tdk.learnenglish.entity.Account;
 @Service
 public class MyUserDetails implements UserDetailsService {
 
+
+
+	@Autowired
+	private AcountDao acountDao;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		Account account = acountDao.getAcountByUserName(username);
+		if (account == null)
+			return null;
+		return User.withUsername(username).password(account.getPassWord()).roles(account.getRole().toString()).accountExpired(false).accountLocked(false)
+				.credentialsExpired(false).disabled(false).build();
 	}
-
-//	@Autowired
-//	private AcountDao acountDao;
-//
-//	@Override
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		Account account = AcountDao.getUser(username);
-//		if (account == null)
-//			return null;
-//		return User.withUsername(username).password(account.).roles(account.getIsadmin().toString()).accountExpired(false).accountLocked(false)
-//				.credentialsExpired(false).disabled(false).build();
-//	}
 
 }

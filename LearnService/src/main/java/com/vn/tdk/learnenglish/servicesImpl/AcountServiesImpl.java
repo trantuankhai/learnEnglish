@@ -5,6 +5,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -139,6 +141,11 @@ public class AcountServiesImpl implements AcountServices {
 	public Account getByKey(int key) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Account getAcountByToken(HttpServletRequest request) {
+		return acountDao.getAcountByUserName(token.getUsername(token.resolveToken(request)));
 	}
 
 }

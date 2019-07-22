@@ -1,5 +1,7 @@
 package com.vn.tdk.learnenglish.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,5 +36,9 @@ public class AcountController {
 	public String loginWithAcount(@RequestParam("userName") String userName,
 			@RequestParam("passWord") String passWord) {
 		return acountServices.logInWhithAcount(userName, passWord);
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "acount/resolveToken")
+	public Account loginWithAcount(HttpServletRequest request) {
+		return acountServices.getAcountByToken(request);
 	}
 }

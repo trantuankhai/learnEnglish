@@ -84,7 +84,7 @@ public class AcountDaoImpl implements AcountDao {
 	@Override
 	public int register(String username, String Email, String fullname, String passWord) {
 		Account acount = new Account.AcountBuilder(username, passWord, Email).withFullName(fullname)
-				.withIsActive(Status.NONE_ACTIVE).withRole(Role.ROLE_USER)
+				.withIsActive(Status.NONE_ACTIVE).withRole(Role.USER)
 				.withDateCreate(new Date().toString()).build();
 		Integer id = null;
 		session = sessionFactory.openSession();

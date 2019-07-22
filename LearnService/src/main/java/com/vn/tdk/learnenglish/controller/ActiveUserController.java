@@ -1,5 +1,7 @@
 package com.vn.tdk.learnenglish.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +15,9 @@ import com.vn.tdk.learnenglish.sevices.ActiverUserServices;
 public class ActiveUserController {
 	@Autowired
 	private ActiverUserServices activerUserServices;
-	@RequestMapping(value = "active/{id}" , method  = RequestMethod.GET)
-	private ActiveUser getActiveUserById(@PathVariable("id") int id){
-		return activerUserServices.getByKey(id);
+	@RequestMapping(value = "active/{userName}" , method  = RequestMethod.GET)
+	private List<ActiveUser> getListActiveUserById(@PathVariable("userName") int userName){
+		return activerUserServices.getByUserName(userName);
 		
 	}
 }

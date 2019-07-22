@@ -53,7 +53,22 @@ public class ActiveUserDaoImpl implements ActiveUserDao {
 		} finally {
 			session.close();
 		}
-		return (ActiveUser) Status.OBJECT_NULL;
+		return null;
+	}
+
+	@Override
+	public List<ActiveUser> getByUserName(int userName) {
+		session = sessionFactory.openSession();
+		List<ActiveUser> listActiveUsers = null;
+		
+		try {
+			listActiveUsers = session.createQuery("from "+ActiveUser.class.getName()+" where Id_Acount =:Id_Acount").setParameter("Id_Acount", userName).list();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			session.close();
+		}
+		return listActiveUsers;
 	}
 
 }
