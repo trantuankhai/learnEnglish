@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vn.tdk.learnenglish.entity.Theme;
 import com.vn.tdk.learnenglish.sevices.ThemeServices;
 
-@CrossOrigin()
+@CrossOrigin
 @RestController
 public class ThemeController {
 	@Autowired

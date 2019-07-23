@@ -17,7 +17,8 @@ import com.vn.tdk.learnenglish.util.Status;
 
 @Repository
 public class AcountDaoImpl implements AcountDao {
-	private final static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+	private final static SessionFactory sessionFactory = new Configuration()
+			.configure().buildSessionFactory();
 	private static Session session;
 	private static Transaction transaction;
 
@@ -82,10 +83,12 @@ public class AcountDaoImpl implements AcountDao {
 	}
 
 	@Override
-	public int register(String username, String Email, String fullname, String passWord) {
-		Account acount = new Account.AcountBuilder(username, passWord, Email).withFullName(fullname)
-				.withIsActive(Status.NONE_ACTIVE).withRole(Role.USER)
-				.withDateCreate(new Date().toString()).build();
+	public int register(String username, String Email, String fullname,
+			String passWord) {
+		Account acount = new Account.AcountBuilder(username, passWord, Email)
+				.withFullName(fullname).withIsActive(Status.NONE_ACTIVE)
+				.withRole(Role.USER).withDateCreate(new Date().toString())
+				.build();
 		Integer id = null;
 		session = sessionFactory.openSession();
 		try {
@@ -145,13 +148,12 @@ public class AcountDaoImpl implements AcountDao {
 		Account account = null;
 		try {
 			transaction = session.beginTransaction();
-			account = (Account) session.createQuery(hql.toString()).setParameter("userName", userName)
+			account = (Account) session.createQuery(hql.toString())
+					.setParameter("userName", userName)
 					.setParameter("passWord", passWord).uniqueResult();
 			transaction.commit();
 			return account;
 		} catch (HibernateException e) {
-			if (transaction != null)
-				transaction.rollback();
 			e.printStackTrace();
 		} finally {
 			session.close();
@@ -169,7 +171,8 @@ public class AcountDaoImpl implements AcountDao {
 		Account account = null;
 		try {
 			transaction = session.beginTransaction();
-			account = (Account) session.createQuery(hql.toString()).setParameter("userName", userName).uniqueResult();
+			account = (Account) session.createQuery(hql.toString())
+					.setParameter("userName", userName).uniqueResult();
 			transaction.commit();
 			return account;
 		} catch (HibernateException e) {

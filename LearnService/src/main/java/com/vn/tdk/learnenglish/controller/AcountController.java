@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vn.tdk.learnenglish.entity.Account;
 import com.vn.tdk.learnenglish.sevices.AcountServices;
-
+@CrossOrigin
 @RestController
 public class AcountController {
 	@Autowired
