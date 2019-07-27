@@ -27,11 +27,23 @@ loginApp.controller('loginController', function($scope,$http,serviceLogin,$windo
 					button: "Xác nhận!",
 				});
 			$window.localStorage.setItem('token',res.data);
-				var nextStep = setInterval(function()
+			$http.defaults.headers.common.Authorization = 'Bearer ' +res.data;
+			serviceLogin.resolveToken().then(function(res){
+				if(res.data.role == "USER"){
+				nextStep = setInterval(function()
 				{
 				$window.location.href="../UserSite";
 				},3000);
-
+				}else{
+				console.log('chuyen den trang admin');
+				// nextStep = setInterval(function()
+				// {
+				// $window.location.href="../UserSite";
+				// },3000);
+				}
+			},function(error){
+				console.log(error);
+			})
 			}
 		}, function(error){
 			console.log(error);

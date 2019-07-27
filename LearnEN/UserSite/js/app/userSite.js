@@ -15,11 +15,12 @@ userSite.config(function($routeProvider) {
 	$routeProvider.when("/", {
 		controller : 'mainContentContrller',
    		templateUrl : 'view/maincontent/_mainContent.html'
-	});
-	//.when("/login", {
-	// 	templateUrl : 'view/login/_login.html',
-	// 	controller : 'loginController'
-	// }).when("/register", {
+	})
+	.when("100-tu-vung-theo-chu-de", {
+	 	templateUrl : 'view/Verb/_verb.html',
+	 	controller : 'verbController'
+	 });
+	// .when("/register", {
 	// 	templateUrl : 'view/register/_register.html',
 	// 	controller : 'registerController'
 	// }).otherwise({
