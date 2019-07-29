@@ -1,7 +1,10 @@
 'use strict'
 angular.module('loginServices',[]).factory('serviceLogin',['$http','$rootScope', function($http,$rootScope){
- 		var services = {login:login,
- 			resolveToken:resolveToken};
+ 		var services = 
+ 		{
+ 			login:login,
+ 			resolveToken:resolveToken
+ 		};
 		return services;
 	function login ( passWord , userName ){
 				var data =  $.param({

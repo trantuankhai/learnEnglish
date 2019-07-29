@@ -1,5 +1,5 @@
 'use strict'
-var userSite = angular.module('userSiteApp', ['ngRoute','mainContentService']);
+var userSite = angular.module('userSiteApp', ['ngRoute','mainContentService','vocabularyService']);
 userSite.run( function($rootScope,$window,$http){
 		$rootScope.link = "http://localhost:8010/";
 	var token = $window.localStorage.getItem('token');
@@ -16,7 +16,7 @@ userSite.config(function($routeProvider) {
 		controller : 'mainContentContrller',
    		templateUrl : 'view/maincontent/_mainContent.html'
 	})
-	.when("100-tu-vung-theo-chu-de", {
+	.when('1000-tu-vung-theo-chu-de', {
 	 	templateUrl : 'view/Verb/_verb.html',
 	 	controller : 'verbController'
 	 });
