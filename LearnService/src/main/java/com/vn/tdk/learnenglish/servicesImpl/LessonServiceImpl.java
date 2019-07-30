@@ -43,4 +43,10 @@ public class LessonServiceImpl implements LessonService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<Lesson> getListLessonById(int id) {
+		// TODO Auto-generated method stub
+		return lessonDao.getListLessonById(id);
+	}
 }

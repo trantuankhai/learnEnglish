@@ -170,10 +170,8 @@ public class AcountDaoImpl implements AcountDao {
 		hql.append(" where ac.userName = :userName ");
 		Account account = null;
 		try {
-			transaction = session.beginTransaction();
 			account = (Account) session.createQuery(hql.toString())
 					.setParameter("userName", userName).uniqueResult();
-			transaction.commit();
 			return account;
 		} catch (HibernateException e) {
 			if (transaction != null)

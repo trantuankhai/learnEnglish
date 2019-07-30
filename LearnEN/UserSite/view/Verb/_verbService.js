@@ -8,7 +8,9 @@ angular.module('vocabularyService',[]).factory('serviceVerb', ['$http','$rootSco
 
 	};
 	return services;
-	function getVerb(){
+	function getVerb(id_theme){
+
+		return $http.get($rootScope.link+"lesson/idTheme?idTheme="+id_theme);
 
 	};
 	function getQuiz(){

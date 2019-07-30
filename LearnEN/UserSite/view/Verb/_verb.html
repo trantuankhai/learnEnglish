@@ -1,5 +1,17 @@
-<h2 class="headline c-w structure__headline">Cấu trúc khóa học</h2>
-<div class="c-w text-center structure__description">Lộ trình khóa học gồm 185 bài học, 85 videos bài giảng và hỗ trợ giảng viên</div>
-<div ng-controller="verbController" class="structure__list">
-	oke
+<h2 class="headline c-w structure__headline">Từ Vựng Theo Chủ Đề</h2>
+<div class="c-w text-center structure__description">Bộ 1000 từ vựng theo chủ đề trong cuộc sống hằng ngày, sẽ cho bạn một kho từ điển phong phú giúp cải thiện trình độ tiếng anh</div>
+<div class="structure__list" ng-controller="verbController" data-aos="fade-down-right">
+	<div class="row row-flex row-flex-stretch">
+		<div class="col-xs-12 col-sm-12 col-md-6" ng-repeat="listLesson in listLesson">
+			<div class="clearfix structure__item">
+				<div class="structure__item-image">
+					<a href="/">	<img src="images/{{listLesson.image_descript}}" alt=""></a>
+				</div>
+				<div class="structure__item-content">
+					<div class="structure__item-title">{{listLesson.content}}</div>
+					<div class="structure__item-description"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

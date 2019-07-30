@@ -21,6 +21,10 @@ public class Lesson {
 	private Theme theme;
 	@Column(name = "content")
 	private String content;
+	@Column(name = "image_descript")
+	private String image_descript;
+	@Column(name = "short_descript")
+	private String short_descript;
 
 	public int getId_lesson() {
 		return id_lesson;
@@ -46,11 +50,29 @@ public class Lesson {
 		this.content = content;
 	}
 
-	public Lesson(int id_lesson, Theme theme, String content) {
+	public String getImage_descript() {
+		return image_descript;
+	}
+
+	public void setImage_descript(String image_descript) {
+		this.image_descript = image_descript;
+	}
+
+	public String getShort_descript() {
+		return short_descript;
+	}
+
+	public void setShort_descript(String short_descript) {
+		this.short_descript = short_descript;
+	}
+
+	public Lesson(Theme theme, String content, String image_descript,
+			String short_descript) {
 		super();
-		this.id_lesson = id_lesson;
 		this.theme = theme;
 		this.content = content;
+		this.image_descript = image_descript;
+		this.short_descript = short_descript;
 	}
 
 	public Lesson() {
