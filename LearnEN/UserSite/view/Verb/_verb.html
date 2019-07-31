@@ -1,17 +1,17 @@
-<h2 class="headline c-w structure__headline">Từ Vựng Theo Chủ Đề</h2>
-<div class="c-w text-center structure__description">Bộ 1000 từ vựng theo chủ đề trong cuộc sống hằng ngày, sẽ cho bạn một kho từ điển phong phú giúp cải thiện trình độ tiếng anh</div>
-<div class="structure__list" ng-controller="verbController" data-aos="fade-down-right">
-	<div class="row row-flex row-flex-stretch">
-		<div class="col-xs-12 col-sm-12 col-md-6" ng-repeat="listLesson in listLesson">
-			<div class="clearfix structure__item">
-				<div class="structure__item-image">
-					<a href="/">	<img src="images/{{listLesson.image_descript}}" alt=""></a>
+<div class="blog-news-container club-container" ng-controller="verbController">
+	<h3 class="news-title-main" style="text-align: center">Từ vựng tiếng Anh theo chủ đề</h3>
+	<div class="clearfix"></div>
+	<div  class="news-content">
+		<div class="news-item item-blog" ng-repeat="lesson in listLesson">
+			<a class="news-item-cover" href="https://www.voca.vn/blog/tu-vung-tieng-anh-chu-de-the-thao-1268">
+				<div class="news-image">
+					<img src="images/{{lesson.image_descript}}" alt="Từ vựng Tiếng Anh chủ đề thể thao">
+					<div class="image-shadow">
+						<span class="image-button">Xem thông tin</span>
+					</div>
 				</div>
-				<div class="structure__item-content">
-					<div class="structure__item-title">{{listLesson.content}}</div>
-					<div class="structure__item-description"></div>
-				</div>
-			</div>
+				<p class="news-title">{{lesson.content}}</p>
+			</a>
 		</div>
 	</div>
 </div>
