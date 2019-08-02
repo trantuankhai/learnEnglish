@@ -1,8 +1,11 @@
 package com.vn.tdk.learnenglish.daoimpl;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,7 +24,9 @@ public class AcountDaoImpl implements AcountDao {
 			.configure().buildSessionFactory();
 	private static Session session;
 	private static Transaction transaction;
-
+	private static Logger log = Logger.getLogger(AcountDaoImpl.class.getName());
+	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+	   LocalDateTime now = LocalDateTime.now(); 
 	@Override
 	public Integer insert(Account object) {
 		Integer id = null;
@@ -147,11 +152,10 @@ public class AcountDaoImpl implements AcountDao {
 		hql.append(" and ac.passWord = :passWord ");
 		Account account = null;
 		try {
-			transaction = session.beginTransaction();
 			account = (Account) session.createQuery(hql.toString())
 					.setParameter("userName", userName)
 					.setParameter("passWord", passWord).uniqueResult();
-			transaction.commit();
+			log.info("User "+ userName + "login at "+ dtf.format(now));
 			return account;
 		} catch (HibernateException e) {
 			e.printStackTrace();

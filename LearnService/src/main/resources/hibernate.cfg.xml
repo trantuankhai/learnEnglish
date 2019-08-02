@@ -26,6 +26,8 @@
 		<mapping class="com.vn.tdk.learnenglish.entity.Lesson" />
 		<mapping class="com.vn.tdk.learnenglish.entity.Question" />
 		<mapping class="com.vn.tdk.learnenglish.entity.QuestionDetail" />
+		<mapping class="com.vn.tdk.learnenglish.entity.Vocabulary" />
+		<mapping class="com.vn.tdk.learnenglish.entity.VocabularyDetail" />
 	</session-factory>
 </hibernate-configuration>
 
