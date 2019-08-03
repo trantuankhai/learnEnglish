@@ -3,17 +3,21 @@ angular.module('vocabularyService',[]).factory('serviceVerb', ['$http','$rootSco
 	var services =
 	{
 		getVerb : getVerb,
-		getQuiz : getQuiz
+		getQuiz : getQuiz,
+		getVocabularyDetail:getVocabularyDetail
 
 
 	};
 	return services;
-	function getVerb(id_theme){
+	function getVerb(){
 
-		return $http.get($rootScope.link+"lesson/idTheme?idTheme="+id_theme);
+		return $http.get($rootScope.link+"vocabulary");
 
 	};
 	function getQuiz(){
 
 	};
+	function getVocabularyDetail (id_vocabulary) {
+		return $http.get($rootScope.link+"vocabularyDetail/"+id_vocabulary); 
+	}
 }]);

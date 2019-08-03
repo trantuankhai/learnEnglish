@@ -1,16 +1,16 @@
 <div class="blog-news-container club-container" ng-controller="verbController">
-	<h3 class="news-title-main" style="text-align: center">Từ vựng tiếng Anh theo chủ đề</h3>
+	<h3 class="news-title-main" style="text-align: center;">Từ vựng tiếng Anh theo chủ đề</h3>
 	<div class="clearfix"></div>
 	<div  class="news-content">
-		<div class="news-item item-blog" ng-repeat="lesson in listLesson">
-			<a class="news-item-cover" href="https://www.voca.vn/blog/tu-vung-tieng-anh-chu-de-the-thao-1268">
+		<div class="news-item item-blog" ng-repeat="vocabulary in listLesson">
+			<a class="news-item-cover" href="#!vocabulary-detail/{{vocabulary.id_vocabulary}}">
 				<div class="news-image">
-					<img src="images/{{lesson.image_descript}}" alt="Từ vựng Tiếng Anh chủ đề thể thao">
+					<img src="images/{{vocabulary.image_descript}}" alt="Từ vựng Tiếng Anh chủ đề thể thao">
 					<div class="image-shadow">
 						<span class="image-button">Xem thông tin</span>
 					</div>
 				</div>
-				<p class="news-title">{{lesson.content}}</p>
+				<p class="news-title">{{vocabulary.title}}</p>
 			</a>
 		</div>
 	</div>

@@ -38,7 +38,19 @@ userSite.config(function($routeProvider) {
 	   .when("/hoc-tieng-anh-qua-video", {
 	 	templateUrl : 'view/register/_register.html',
 	 	controller : 'registerController'
+	})
+	.when("/vocabulary-detail/:idvocabulary", {
+	  templateUrl: 'view/Verb/_vocabularyDetail.html',
+	  controller : 'vocabularyDetailController'
 	}).otherwise({
 	 	templateUrl : 'view/maincontent/_mainContent.html'
 	 });
+	// $stateProvider.state('myapp', {
+	//   url: '/vocabulary-detail/:id',
+	//   templateUrl: 'view/Verb/_vocabularyDetail.html',
+	//   controller : 'verbControllerDetail'
+	//   // controller: function($scope, $stateParams) {
+	//   //    $scope.id = $stateParams.id;
+	//   // }
+	// })
 });

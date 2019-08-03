@@ -1,0 +1,12 @@
+<div ng-controller="vocabularyDetailController" style="margin: 15px">
+	<div class="blog-word-item"  ng-repeat=" VocabularyDetail in listVocabularyDetail">
+		<div class="item-cover">
+			<div class="item-front">
+				<img class="item-image" src="images/{{VocabularyDetail.image_descript}}" align="basketball">
+				<p class="item-text">{{VocabularyDetail.english}}</p>
+				<p class="item-text-vi">{{VocabularyDetail.vn}}</p>
+			</div>
+		</div>
+	</div>
+	<div ng-show="{{listVocabularyDetail == null}}">Chưa có dữ liệu</div>
+</div>

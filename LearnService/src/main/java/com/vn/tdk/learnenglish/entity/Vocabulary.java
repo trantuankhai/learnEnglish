@@ -1,12 +1,15 @@
 package com.vn.tdk.learnenglish.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.Table;
+@Entity
+@Table(name = "tb_vocabulary")
 public class Vocabulary {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +18,18 @@ public class Vocabulary {
 	@ManyToOne()
 	@JoinColumn(name = "id_theme", nullable = false)
 	private Theme theme;
+	@Column(name = "title")
+	private String title;
 	@Column(name = "image_descript")
 	private String image_descript;
 	@Column(name = "short_descript")
 	private String short_descript;
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public int getId_vocabulary() {
 		return id_vocabulary;
 	}
@@ -43,9 +54,11 @@ public class Vocabulary {
 	public void setShort_descript(String short_descript) {
 		this.short_descript = short_descript;
 	}
-	public Vocabulary(Theme theme, String image_descript, String short_descript) {
+
+	public Vocabulary(Theme theme, String title, String image_descript, String short_descript) {
 		super();
 		this.theme = theme;
+		this.title = title;
 		this.image_descript = image_descript;
 		this.short_descript = short_descript;
 	}
