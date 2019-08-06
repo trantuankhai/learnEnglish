@@ -5,4 +5,9 @@ userSite.controller('mainContentContrller', function($http,contentServices,$scop
 	}, function(error){
 
 	});
+$('.theme').attr('data-aos','zoom-in-right');
 });
+// $(document).ready(function(){
+
+// 	
+// });

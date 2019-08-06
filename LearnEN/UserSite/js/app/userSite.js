@@ -45,12 +45,6 @@ userSite.config(function($routeProvider) {
 	}).otherwise({
 	 	templateUrl : 'view/maincontent/_mainContent.html'
 	 });
-	// $stateProvider.state('myapp', {
-	//   url: '/vocabulary-detail/:id',
-	//   templateUrl: 'view/Verb/_vocabularyDetail.html',
-	//   controller : 'verbControllerDetail'
-	//   // controller: function($scope, $stateParams) {
-	//   //    $scope.id = $stateParams.id;
-	//   // }
-	// })
+
 });
+

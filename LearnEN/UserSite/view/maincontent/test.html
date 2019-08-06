@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Java Script</title>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style type="text/css">
+	.red{
+		color: red;
+	}
+	.pink {
+		color: pink;
+	}
+	.demo {
+		color: red;
+		margin: 0 auto;
+		text-align: center;
+	}
+</style>
+
+</head>
+<body>
+	<div class="demo">xin chao 1</div>
+	<div class="demo">xin chao 2</div>
+	<div class="demo">xin chao 3</div>
+	<div class="demo">xin chao 4</div>
+	<div class="demo">xin chao 5</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+<script>
+  AOS.init();
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.demo:odd').attr(
+			'data-aos','fade-down-right'
+		);
+		// $('.demo:even').attr({
+		// 	'data-aos': 'fade-down-left'
+		// });
+	});
+</script>
+</html>
