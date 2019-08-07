@@ -28,16 +28,16 @@ userSite.config(function($routeProvider) {
 	 	controller : 'verbController',		
 	 	templateUrl : 'view/Verb/_verb.html'
 	 }).when("/tieng-anh-giao-tiep", {
-	 	templateUrl : 'view/register/_register.html',
-	 	controller : 'registerController'
+	 	templateUrl : 'view/EnglishCommunication/_EnglishCommunication.html',
+	 	controller : 'EnglishCommunicationController'
 	})
 	  .when("/ngu-phap-co-ban", {
-	 	templateUrl : 'view/register/_register.html',
-	 	controller : 'registerController'
+	  	templateUrl : 'view/BasicGrammar/_BasicGrammar.html',
+	 	controller : 'BasicGrammarController'
 	})
 	   .when("/hoc-tieng-anh-qua-video", {
-	 	templateUrl : 'view/register/_register.html',
-	 	controller : 'registerController'
+	 	templateUrl : 'view/LearnEnglishViaVideo/_LearnEnglishViaVideo.html',
+	 	controller : 'LearnEnglishViaVideoController'
 	})
 	.when("/vocabulary-detail/:idvocabulary", {
 	  templateUrl: 'view/Verb/_vocabularyDetail.html',
