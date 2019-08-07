@@ -5,7 +5,7 @@ import javax.persistence.*;
 import com.vn.tdk.learnenglish.common.Role;
 
 @Entity
-@Table(name = "TB_Acount")
+@Table(name = "Tb_Acount")
 public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

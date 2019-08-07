@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_lesson")
+@Table(name = "Tb_Lesson")
 public class Lesson {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

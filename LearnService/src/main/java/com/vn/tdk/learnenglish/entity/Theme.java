@@ -12,8 +12,10 @@ import javax.persistence.Table;
 public class Theme {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TB_THEME_ENGLISH")
-//	@SequenceGenerator(name = "SEQ_TB_THEME_ENGLISH", sequenceName = "SEQ_TB_THEME_ENGLISH", allocationSize = 1)
+	// @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
+	// "SEQ_TB_THEME_ENGLISH")
+	// @SequenceGenerator(name = "SEQ_TB_THEME_ENGLISH", sequenceName =
+	// "SEQ_TB_THEME_ENGLISH", allocationSize = 1)
 	@Column(name = "id_theme", nullable = false)
 	private int id_theme;
 	@Column(name = "name_theme", nullable = false)
@@ -24,19 +26,9 @@ public class Theme {
 	private String short_url_theme;
 	@Column(name = "image_descript_theme")
 	private String image_descript_theme;
-	@Column(name = "script_theme")
-	private String script_them;
 
 	public int getId_theme() {
 		return id_theme;
-	}
-
-	public String getScript_them() {
-		return script_them;
-	}
-
-	public void setScript_them(String script_them) {
-		this.script_them = script_them;
 	}
 
 	public void setId_theme(int id_theme) {
@@ -75,15 +67,14 @@ public class Theme {
 		this.image_descript_theme = image_descript_theme;
 	}
 
-
-	public Theme( String name_them, String descript_theme, String short_url_theme,
-			String image_descript_theme, String script_them) {
+	public Theme(String name_them, String descript_theme,
+			String short_url_theme, String image_descript_theme,
+			String script_them) {
 		super();
 		this.name_them = name_them;
 		this.descript_theme = descript_theme;
 		this.short_url_theme = short_url_theme;
 		this.image_descript_theme = image_descript_theme;
-		this.script_them = script_them;
 	}
 
 	public Theme() {

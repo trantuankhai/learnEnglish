@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_feedBack")
+@Table(name = "Tb_Feed_Back")
 public class FeedBack {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
