@@ -25,8 +25,9 @@ public class AcountDaoImpl implements AcountDao {
 	private static Session session;
 	private static Transaction transaction;
 	private static Logger log = Logger.getLogger(AcountDaoImpl.class.getName());
-	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-	   LocalDateTime now = LocalDateTime.now(); 
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	LocalDateTime now = LocalDateTime.now();
+
 	@Override
 	public Integer insert(Account object) {
 		Integer id = null;
@@ -45,9 +46,19 @@ public class AcountDaoImpl implements AcountDao {
 	}
 
 	@Override
-	public String edit(Account object) {
-		// TODO Auto-generated method stub
-		return null;
+	public String edit(Account account) {
+		session = sessionFactory.openSession();
+		try {
+			transaction = session.beginTransaction();
+			session.saveOrUpdate(account);
+			transaction.commit();
+			return Status.SUCCESS;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return Status.ERROR;
 	}
 
 	@Override
@@ -155,7 +166,7 @@ public class AcountDaoImpl implements AcountDao {
 			account = (Account) session.createQuery(hql.toString())
 					.setParameter("userName", userName)
 					.setParameter("passWord", passWord).uniqueResult();
-			log.info("User "+ userName + "login at "+ dtf.format(now));
+			log.info("User " + userName + "login at " + dtf.format(now));
 			return account;
 		} catch (HibernateException e) {
 			e.printStackTrace();

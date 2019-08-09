@@ -21,7 +21,7 @@ public class ActiveUserServiceImpl implements ActiverUserServices {
 	}
 
 	@Override
-	public String edit(Integer id, ActiveUser object) {
+	public String edit( ActiveUser object) {
 		// TODO Auto-generated method stub
 		return null;
 	}

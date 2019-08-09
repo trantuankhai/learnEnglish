@@ -21,7 +21,7 @@ public class LessonServiceImpl implements LessonService {
 	}
 
 	@Override
-	public String edit(Integer id, Lesson object) {
+	public String edit(Lesson object) {
 		// TODO Auto-generated method stub
 		return null;
 	}

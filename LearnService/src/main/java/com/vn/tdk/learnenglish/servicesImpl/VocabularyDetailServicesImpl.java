@@ -15,13 +15,13 @@ public class VocabularyDetailServicesImpl implements VocabularyDetailServices {
 	private VocabularyDetailDao VocabularyDetailDao;
 
 	@Override
-	public Integer insert(Vocabulary object) {
+	public Integer insert(VocabularyDetail object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String edit(Integer id, Vocabulary object) {
+	public String edit(VocabularyDetail object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -33,13 +33,13 @@ public class VocabularyDetailServicesImpl implements VocabularyDetailServices {
 	}
 
 	@Override
-	public List<Vocabulary> getAll() {
+	public List<VocabularyDetail> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Vocabulary getByKey(int key) {
+	public VocabularyDetail getByKey(int key) {
 		// TODO Auto-generated method stub
 		return null;
 	}

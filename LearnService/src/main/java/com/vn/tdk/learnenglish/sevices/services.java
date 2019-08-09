@@ -5,7 +5,7 @@ import java.util.List;
 public interface services<T> {
 	public Integer insert(T object);
 
-	public String edit(Integer id, T object);
+	public String edit( T object);
 
 	public String delete(Integer id);
 

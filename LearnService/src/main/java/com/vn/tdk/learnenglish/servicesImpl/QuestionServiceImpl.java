@@ -21,7 +21,7 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public String edit(Integer id, Question object) {
+	public String edit( Question object) {
 		// TODO Auto-generated method stub
 		return null;
 	}

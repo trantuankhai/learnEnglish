@@ -21,7 +21,7 @@ public class FeedBackServiceImpl implements FeedBackService {
 	}
 
 	@Override
-	public String edit(Integer id, FeedBack object) {
+	public String edit(FeedBack object) {
 		// TODO Auto-generated method stub
 		return null;
 	}

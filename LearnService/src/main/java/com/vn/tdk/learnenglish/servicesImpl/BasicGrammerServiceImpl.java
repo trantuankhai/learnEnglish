@@ -21,7 +21,7 @@ public class BasicGrammerServiceImpl implements BasicGrammerService {
 	}
 
 	@Override
-	public String edit(Integer id, BasicGrammar object) {
+	public String edit( BasicGrammar object) {
 		// TODO Auto-generated method stub
 		return null;
 	}

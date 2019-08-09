@@ -14,21 +14,21 @@ public class VocabularyServicesImpl implements VocabularyServices {
 	private VocabularyDao vocabularyDao;
 
 	@Override
-	public Integer insert(Vocabulary object) {
+	public Integer insert(Vocabulary vocabulary) {
 		// TODO Auto-generated method stub
-		return null;
+		return vocabularyDao.insert(vocabulary);
 	}
 
 	@Override
-	public String edit(Integer id, Vocabulary object) {
+	public String edit( Vocabulary vocabulary) {
 		// TODO Auto-generated method stub
-		return null;
+		return vocabularyDao.edit(vocabulary);
 	}
 
 	@Override
 	public String delete(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return vocabularyDao.delete(id);
 	}
 
 	@Override

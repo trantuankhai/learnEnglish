@@ -36,15 +36,15 @@ public class AcountServiesImpl implements AcountServices {
 	}
 
 	@Override
-	public String edit(Integer id, Account object) {
+	public String edit( Account account) {
 		// TODO Auto-generated method stub
-		return null;
+		return acountDao.edit(account);
 	}
 
 	@Override
 	public String delete(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return acountDao.delete(id);
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class AcountServiesImpl implements AcountServices {
 			Integer id_acount = acountDao.register(username, Email, fullname,
 					passWordHash);
 			if (id_acount != Status.STATUS_ADD_ERROR) {
-				String statusSendMail = mailServices.sendMail(Email, id_acount);
+				 mailServices.sendMail(Email, id_acount);
 				return id_acount;
 			} else {
 				return Status.STATUS_ADD_ERROR;
@@ -140,7 +140,7 @@ public class AcountServiesImpl implements AcountServices {
 	@Override
 	public Account getByKey(int key) {
 		// TODO Auto-generated method stub
-		return null;
+		return acountDao.getByKey(key);
 	}
 
 	@Override

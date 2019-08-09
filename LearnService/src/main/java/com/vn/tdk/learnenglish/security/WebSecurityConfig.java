@@ -27,11 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Entry points
 		http.authorizeRequests()//
-				.antMatchers(HttpMethod.POST, "/acount/register/**").permitAll()
-				.antMatchers(HttpMethod.GET, "/acount/active/**").permitAll()
-				.antMatchers(HttpMethod.GET, "/acount/login/**").permitAll()
+//				.antMatchers(HttpMethod.POST, "/acount/register/**").permitAll()
+//				.antMatchers(HttpMethod.GET, "/acount/active/**").permitAll()
+//				.antMatchers(HttpMethod.GET, "/acount/login/**").permitAll()
 				// Disallow everything else..
-				.anyRequest().authenticated();
+				.anyRequest().permitAll();
 
 		// If a user try to access a resource without having enough permissions
 		http.exceptionHandling().accessDeniedPage("/Login");

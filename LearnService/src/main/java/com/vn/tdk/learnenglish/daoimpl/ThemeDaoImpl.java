@@ -15,7 +15,8 @@ import com.vn.tdk.learnenglish.util.Status;
 
 @Repository
 public class ThemeDaoImpl implements ThemeDao {
-	private final static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+	private final static SessionFactory sessionFactory = new Configuration()
+			.configure().buildSessionFactory();
 	private static Session session;
 	private static Transaction transaction;
 
@@ -24,7 +25,7 @@ public class ThemeDaoImpl implements ThemeDao {
 		Integer id;
 		session = sessionFactory.openSession();
 		try {
-			transaction = session.getTransaction();
+			transaction = session.beginTransaction();
 			id = (Integer) session.save(theme);
 			transaction.commit();
 			return id;
@@ -40,9 +41,19 @@ public class ThemeDaoImpl implements ThemeDao {
 	}
 
 	@Override
-	public String edit(Theme object) {
-		// TODO Auto-generated method stub
-		return null;
+	public String edit(Theme theme) {
+		session = sessionFactory.openSession();
+		try {
+			transaction = session.beginTransaction();
+			session.saveOrUpdate(theme);
+			transaction.commit();
+			return Status.SUCCESS;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return Status.ERROR;
 	}
 
 	@SuppressWarnings("all")
@@ -110,7 +121,8 @@ public class ThemeDaoImpl implements ThemeDao {
 		session = sessionFactory.openSession();
 		String hql = "from " + Theme.class.getName();
 		try {
-			return themes = session.createQuery(hql.toString()).setFirstResult(min).setMaxResults(max).list();
+			return themes = session.createQuery(hql.toString())
+					.setFirstResult(min).setMaxResults(max).list();
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {

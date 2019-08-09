@@ -16,7 +16,7 @@ import com.vn.tdk.learnenglish.sevices.ThemeServices;
 public class ThemeServicesImpl implements ThemeServices {
 
 	@Autowired
-	ThemeDao themeDao;
+	private ThemeDao themeDao;
 
 	@Override
 	public Integer insert(Theme theme) {
@@ -25,9 +25,9 @@ public class ThemeServicesImpl implements ThemeServices {
 	}
 
 	@Override
-	public String edit(Integer id, Theme object) {
+	public String edit(Theme theme) {
 		// TODO Auto-generated method stub
-		return null;
+		return themeDao.edit(theme);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class ThemeServicesImpl implements ThemeServices {
 	@Override
 	public Theme getByKey(int key) {
 		// TODO Auto-generated method stub
-		return null;
+		return themeDao.getByKey(key);
 	}
 
 }
