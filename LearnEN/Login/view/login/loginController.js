@@ -30,7 +30,7 @@ loginApp.controller('loginController', function($scope,$http,serviceLogin,$windo
 			$http.defaults.headers.common.Authorization = 'Bearer ' +res.data;
 			serviceLogin.resolveToken().then(function(res){
 				if(res.data.role == "USER"){
-				nextStep = setInterval(function()
+				var nextStep = setInterval(function()
 				{
 				$window.location.href="../UserSite";
 				},3000);

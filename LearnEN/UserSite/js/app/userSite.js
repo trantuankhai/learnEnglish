@@ -42,6 +42,10 @@ userSite.config(function($routeProvider) {
 	.when("/vocabulary-detail/:idvocabulary", {
 	  templateUrl: 'view/Verb/_vocabularyDetail.html',
 	  controller : 'vocabularyDetailController'
+	})
+		.when("/basic-grammar-detail", {
+	  templateUrl: 'view/BasicGrammar/_BasicGrammarDetail.html',
+	  controller : 'basicGrammarDetailController'
 	}).otherwise({
 	 	templateUrl : 'view/maincontent/_mainContent.html'
 	 });

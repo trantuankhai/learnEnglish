@@ -7,8 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.core.sym.Name;
 
 @Entity
 @Table(name = "Tb_Question")
@@ -17,9 +20,9 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_question")
 	private int id_question;
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "id_lesson", nullable = false)
-	private Lesson lesson;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_basic_grammar_detail")
+	private BasicGrammarDetail BasicGrammarDetail;
 	@Column(name = "content_question")
 	private String content_question;
 
@@ -27,12 +30,27 @@ public class Question {
 		super();
 	}
 
-	public Question(int id_question, Lesson lesson, String content_question) {
+
+
+	public Question(com.vn.tdk.learnenglish.entity.BasicGrammarDetail basicGrammarDetail, String content_question) {
 		super();
-		this.id_question = id_question;
-		this.lesson = lesson;
+		BasicGrammarDetail = basicGrammarDetail;
 		this.content_question = content_question;
 	}
+
+
+
+	public BasicGrammarDetail getBasicGrammarDetail() {
+		return BasicGrammarDetail;
+	}
+
+
+
+	public void setBasicGrammarDetail(BasicGrammarDetail basicGrammarDetail) {
+		BasicGrammarDetail = basicGrammarDetail;
+	}
+
+
 
 	public int getId_question() {
 		return id_question;
@@ -42,13 +60,6 @@ public class Question {
 		this.id_question = id_question;
 	}
 
-	public Lesson getLesson() {
-		return lesson;
-	}
-
-	public void setLesson(Lesson lesson) {
-		this.lesson = lesson;
-	}
 
 	public String getContent_question() {
 		return content_question;
