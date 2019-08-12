@@ -81,7 +81,7 @@ public class ThemeDaoImpl implements ThemeDao {
 		Theme theme = null;
 		session = sessionFactory.openSession();
 		try {
-			transaction = session.getTransaction();
+			transaction = session.beginTransaction();
 			theme = session.get(Theme.class, key);
 			transaction.commit();
 			return theme;
@@ -99,7 +99,7 @@ public class ThemeDaoImpl implements ThemeDao {
 		Theme theme = getByKey(id);
 		session = sessionFactory.openSession();
 		try {
-			transaction = session.getTransaction();
+			transaction = session.beginTransaction();
 			session.delete(theme);
 			transaction.commit();
 			return Status.SUCCESS;

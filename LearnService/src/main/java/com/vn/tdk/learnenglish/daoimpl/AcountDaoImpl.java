@@ -199,4 +199,25 @@ public class AcountDaoImpl implements AcountDao {
 		return null;
 	}
 
+	@Override
+	public String nonActiveAcount(int id_acount) {
+		Account acount = getByKey(id_acount);
+		acount.setIsActive(Status.NONE_ACTIVE);
+		session = sessionFactory.openSession();
+		try {
+			transaction = session.beginTransaction();
+			session.update(acount);
+			transaction.commit();
+			return Status.SUCCESS;
+		} catch (HibernateException e) {
+			if (transaction != null)
+				transaction.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return Status.ERROR;
+	}
+
 }

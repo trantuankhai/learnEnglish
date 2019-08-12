@@ -7,6 +7,8 @@ public interface AcountDao extends TempleteDao<Account> {
 
 	String activeAcount(int id_acount);
 
+	String nonActiveAcount(int id_acount);
+
 	Account logInWhithAcount(String userName, String passWord);
 
 	Account getAcountByUserName(String userName);

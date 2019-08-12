@@ -33,13 +33,13 @@ loginApp.controller('loginController', function($scope,$http,serviceLogin,$windo
 				var nextStep = setInterval(function()
 				{
 				$window.location.href="../UserSite";
-				},3000);
+				},2000);
 				}else{
 				console.log('chuyen den trang admin');
-				// nextStep = setInterval(function()
-				// {
-				// $window.location.href="../UserSite";
-				// },3000);
+				var nextStep = setInterval(function()
+				{
+				$window.location.href="../AdminSite";
+				},2000);
 				}
 			},function(error){
 				console.log(error);

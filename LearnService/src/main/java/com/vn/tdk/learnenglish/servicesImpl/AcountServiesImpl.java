@@ -148,4 +148,10 @@ public class AcountServiesImpl implements AcountServices {
 		return acountDao.getAcountByUserName(token.getUsername(token.resolveToken(request)));
 	}
 
+	@Override
+	public String nonActiveAcount(int id_acount) {
+		// TODO Auto-generated method stub
+		return acountDao.nonActiveAcount(id_acount);
+	}
+
 }

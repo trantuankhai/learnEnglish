@@ -1,6 +1,7 @@
 package com.vn.tdk.learnenglish.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,8 +28,12 @@ public class AcountController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "acount/active/{id_acount}")
-	public String activeAcounr(@PathVariable("id_acount") Integer id_acount) {
+	public String activeAcount(@PathVariable("id_acount") Integer id_acount) {
 		return acountServices.activeAcount(id_acount);
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "acount/noneActive/{id_acount}")
+	public String noneActiveAcount(@PathVariable("id_acount") Integer id_acount) {
+		return acountServices.nonActiveAcount(id_acount);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "acount/login")
@@ -39,5 +44,9 @@ public class AcountController {
 	@RequestMapping(method = RequestMethod.GET, value = "acount/resolveToken")
 	public Account loginWithAcount(HttpServletRequest request) {
 		return acountServices.getAcountByToken(request);
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "acount")
+	public List<Account> getAllAcount() {
+		return acountServices.getAll();
 	}
 }
