@@ -1,5 +1,6 @@
 package com.vn.tdk.learnenglish.dao;
 
+import com.vn.tdk.learnenglish.common.Role;
 import com.vn.tdk.learnenglish.entity.Account;
 
 public interface AcountDao extends TempleteDao<Account> {
@@ -12,4 +13,7 @@ public interface AcountDao extends TempleteDao<Account> {
 	Account logInWhithAcount(String userName, String passWord);
 
 	Account getAcountByUserName(String userName);
+
+	int addAcountWithRoleAdmin(String username, String Email, String fullname,
+			String passWord, Role role);
 }

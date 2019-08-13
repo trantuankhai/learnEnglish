@@ -220,4 +220,26 @@ public class AcountDaoImpl implements AcountDao {
 		return Status.ERROR;
 	}
 
+	@Override
+	public int addAcountWithRoleAdmin(String username, String Email,
+			String fullname, String passWord, Role role) {
+		Account acount = new Account.AcountBuilder(username, passWord, Email)
+				.withFullName(fullname).withIsActive(Status.ACTIVE)
+				.withRole(role).withDateCreate(new Date().toString())
+				.build();
+		Integer id = null;
+		session = sessionFactory.openSession();
+		try {
+			transaction = session.beginTransaction();
+			id = (Integer) session.save(acount);
+			transaction.commit();
+		} catch (HibernateException e) {
+			if (transaction != null)
+				transaction.rollback();
+		} finally {
+			session.close();
+		}
+		return id;
+	}
+
 }

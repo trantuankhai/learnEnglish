@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.vn.tdk.learnenglish.common.Role;
 import com.vn.tdk.learnenglish.dao.AcountDao;
 import com.vn.tdk.learnenglish.entity.Account;
 import com.vn.tdk.learnenglish.mailServices.MailServices;
@@ -36,7 +37,7 @@ public class AcountServiesImpl implements AcountServices {
 	}
 
 	@Override
-	public String edit( Account account) {
+	public String edit(Account account) {
 		// TODO Auto-generated method stub
 		return acountDao.edit(account);
 	}
@@ -67,7 +68,7 @@ public class AcountServiesImpl implements AcountServices {
 			Integer id_acount = acountDao.register(username, Email, fullname,
 					passWordHash);
 			if (id_acount != Status.STATUS_ADD_ERROR) {
-				 mailServices.sendMail(Email, id_acount);
+				mailServices.sendMail(Email, id_acount);
 				return id_acount;
 			} else {
 				return Status.STATUS_ADD_ERROR;
@@ -145,13 +146,37 @@ public class AcountServiesImpl implements AcountServices {
 
 	@Override
 	public Account getAcountByToken(HttpServletRequest request) {
-		return acountDao.getAcountByUserName(token.getUsername(token.resolveToken(request)));
+		return acountDao.getAcountByUserName(token.getUsername(token
+				.resolveToken(request)));
 	}
 
 	@Override
 	public String nonActiveAcount(int id_acount) {
 		// TODO Auto-generated method stub
 		return acountDao.nonActiveAcount(id_acount);
+	}
+
+	@Override
+	public int addAcountWithRoleAdmin(String username, String Email,
+			String fullname, String passWord, Role role) {
+		if (ConstanValue.NULL_VALUE.equals(username)
+				|| ConstanValue.NULL_VALUE.equals(Email)
+				|| ConstanValue.NULL_VALUE.equals(fullname)
+				|| ConstanValue.NULL_VALUE.equals(passWord)) {
+			return Status.ERROR_ADD_NULL;
+		} else if (getAcountByUserName(username) != null) {
+			return Status.ACOUNT_EXITS;
+		} else {
+			String passWordHash = getHashPasswordMD5(passWord);
+			Integer id_acount = acountDao.addAcountWithRoleAdmin(username,
+					Email, fullname, passWordHash, role);
+			if (id_acount != Status.STATUS_ADD_ERROR) {
+				return id_acount;
+			} else {
+				return Status.STATUS_ADD_ERROR;
+			}
+
+		}
 	}
 
 }
