@@ -20,6 +20,7 @@ import com.vn.tdk.learnenglish.util.Status;
 @Service
 public class UploadFileServicesImpl implements uploadService {
 	private final String URL_UPLOAD_FILE_IMAGE = System.getProperty("user.dir") + "/image";
+	private final String SYSTEM_URL = System.getProperty("user.dir");
 
 	@Override
 	public String uploadFile(MultipartFile file) throws IOException {
@@ -43,6 +44,9 @@ public class UploadFileServicesImpl implements uploadService {
 	public Resource getFile(String fileName) throws MalformedURLException {
 		if (!ConstanValue.NULL_VALUE.equals(fileName)) {
 			File file = new File(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
+//			File file = new File(SYSTEM_URL + "/" + fileName);
+			//System.out.println(SYSTEM_URL + "/" + fileName);
+			System.out.println(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
 			return new UrlResource(file.toURI());
 		} else {
 			return null;
