@@ -2,15 +2,20 @@
 <div class="c-w text-center structure__description">Lộ trình khóa học gồm 185 bài học, 85 videos bài giảng và hỗ trợ giảng viên</div>
 <div class="structure__list" ng-controller="mainContentContrller">
 	<div class="row row-flex row-flex-stretch">
-		<div class="col-xs-12 col-sm-12 col-md-6 theme" ng-repeat="listContent in listContent" >
+		<div class="col-xs-12 col-sm-12 col-md-6 theme" ng-repeat="content in listContent" >
 			<div class="clearfix structure__item">
 				<div class="structure__item-image">
+<<<<<<< HEAD
+					<a href="#!{{content.short_url_theme}}">	
+						<img src="http://localhost:8010/image/{{content.image_descript_theme}}" alt=""></a>
+=======
 					<a href="#!{{listContent.short_url_theme}}">	
 						<img src="http://localhost:8010/image/{{listContent.image_descript_theme}}" alt=""></a>
+>>>>>>> 113e68560abafc1993267e5c9614f68465eac938
 				</div>
 				<div class="structure__item-content">
-					<div class="structure__item-title">{{listContent.name_them}}</div>
-					<div class="structure__item-description">{{listContent.descript_theme}}</div>
+					<div class="structure__item-title">{{content.name_them}}</div>
+					<div class="structure__item-description">{{content.descript_theme}}</div>
 				</div>
 			</div>
 		</div>

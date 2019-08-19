@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //				.antMatchers(HttpMethod.POST, "/acount/register/**").permitAll()
 //				.antMatchers(HttpMethod.GET, "/acount/active/**").permitAll()
 //				.antMatchers(HttpMethod.GET, "/acount/login/**").permitAll()
+//				.antMatchers(HttpMethod.GET, "/image/**").permitAll()
 				// Disallow everything else..
 				.anyRequest().permitAll();
 

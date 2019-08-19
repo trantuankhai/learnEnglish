@@ -47,8 +47,19 @@ public class VocabularyDetailDaoImpl implements VocabularyDetailDao {
 
 	@Override
 	public VocabularyDetail getByKey(int key) {
-		// TODO Auto-generated method stub
-		return null;
+		session = sessionFactory.openSession();
+		VocabularyDetail vocabularyDetails = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("from "+VocabularyDetail.class.getName()+ " vbd");
+		try {
+			vocabularyDetails = (VocabularyDetail)session.createQuery(sql.toString()).uniqueResult();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return vocabularyDetails;
 	}
 
 	@Override

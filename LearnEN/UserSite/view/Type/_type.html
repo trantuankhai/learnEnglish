@@ -1,0 +1,23 @@
+<div class="topic-intro-container" ng-controller="typeController">
+    <div class="topic-intro-cover">
+
+        <p class="topic-intro-title">Chào mừng bạn đến với chủ điểm</p>
+        <h1 class="topic-intro-name">{{nameLesion}}</h1>
+        <div class="topic-intro-icon"></div>
+        <p class="topic-intro-label">Quy trình học gồm 2 bước:</p>
+
+        <div class="topic-intro-step-block">
+
+            <div class="topic-intro-step step-1" ng-repeat="question in listQuestion">
+                <div class="step-icon"></div>
+                <p class="step-number">Bước {{question.type.id_type}}</p>
+                <p class="step-name">{{question.type.content_type}}</p>
+                <p class="step-des">{{question.type.descript_type}}</p>
+                
+                <a ng-show="{{question.type.id_type == 1}}" href="#!hoc-bai/{{question.basicGrammarDetail.id_basic_grammar_detail}}/{{question.type.id_type}}/1"a class="step-button">Học Bài</a>
+                <a ng-show="{{question.type.id_type == 2}}" href="#!question/{{question.basicGrammarDetail.id_basic_grammar_detail}}/{{question.type.id_type}}/1"a class="step-button">Trả Lời</a>
+            </div>
+        </div>
+
+    </div>
+</div>

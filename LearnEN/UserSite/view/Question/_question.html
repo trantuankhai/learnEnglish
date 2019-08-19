@@ -1,0 +1,57 @@
+
+<div ng-controller="questionController" style="margin-top: 100px ">
+	<div class="reading-exercise-item item-current" typequestion="2" index="0" answer="A" token="pyYZ9ATlT7bFtFNuqFx2GFGJb+z4I5ULhE+09plBkdM=" style="display: block;">
+		<input class="exe-explane-modal" type="hidden" name="" value="Câu văn tiếng Việt và hình ảnh đang nói về một lịch trình được sắp xếp cụ thể là 'Bữa tiệc bắt đầu lúc 8 giờ phải không?' Vì vậy câu 'Does the party start at 8 o'clock?' ở thì hiện tại đơn là câu trả lời đúng nhất.">
+		<div class="exe-block reading-show-question prev">
+			<!-- Question -->
+			<div class="exe-block-question">
+				<div class="exe-question">
+					<div class="exe-question-cover">
+						<p class="exe-question-title">{{question.concept_suggest}}</p>
+						<div class="testing-left-content">
+							<p class="exe-question-main">{{question.example_question}}</p>
+							<div class="exe-question-img" id="hinhanh">
+								<img src="http://localhost:8010/image/{{question.image_question}}" alt="image">
+							</div>
+						</div>
+						
+						<div class="testing-right-content">
+							<div class="guessing-exe-question">
+								
+								<button id="ad" class="guessing-choice-item" ng-click="checkAnswerCorrect(answer.question.id_question,$index);"  ng-repeat="answer in listAnswer" >
+									<span class="guessing-cover">
+										<span class="guessing-icon"></span>
+										<span class="guessing-text">{{answer.answer}}</span>
+									</span>
+								</button>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="theory-bottom">
+		<div class="bottom-cover">
+			<button class="button button-prev" ng-click="prevQuestion(question.order)" ng-disabled="isDisable">Quay lại</button>
+			<div class="theory-list-button">
+				
+				<a href="javascript:void(0)" data-toggle="modal" data-target="#feedback-fault" class="button-item item-1 btn-feedback"><span class="icon"></span>Báo lỗi</a>
+				<a href="#" data-toggle="modal" data-target="#modal-result-comment" class="button-item item-2"><span class="icon"></span>Thảo luận</a>
+				<a href="javascript:void(0)" data-toggle="modal" data-target="#setting-modal" class="button-item item-3"><span class="icon"></span>Cài đặt</a>
+			</div>
+			<button class="button button-next" ng-click="nextQuestion(question.order)">Tiếp theo</button>
+			
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function($) {
+		$('#hinhanh').click(function(event) {
+			console.log('a');
+			// $(this).addClass('choice-true');
+		});
+	});
+
+</script>

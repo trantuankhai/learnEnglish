@@ -6,12 +6,19 @@ userSite.run( function($rootScope,$window,$http,$interval){
 	if(token!=null)
 	{
 		$http.defaults.headers.common['Authorization'] = 'Bearer ' +token;
+		$http.get($rootScope.link+"acount/resolveToken").then(function(res){
+		$rootScope.fullName = res.data.fullName;
+		},function(error){
+		$window.localStorage.removeItem('token');
+		$window.location.href = "../Login";
+	});
 	}else
 	{
 		$window.location.href = "../Login";
 	}
 function checkTimeOut(){
-	$http.get($rootScope.link+"acount/resolveToken").then(function(data){
+	$http.get($rootScope.link+"acount/resolveToken").then(function(res){
+		$rootScope.fullName = res.data.fullName;
 	},function(error){
 		$window.localStorage.removeItem('token');
 		$window.location.href = "../Login";
@@ -43,9 +50,21 @@ userSite.config(function($routeProvider) {
 	  templateUrl: 'view/Verb/_vocabularyDetail.html',
 	  controller : 'vocabularyDetailController'
 	})
-		.when("/basic-grammar-detail", {
+	.when("/basic-grammar-detail/:idbasicgramardetail", {
 	  templateUrl: 'view/BasicGrammar/_BasicGrammarDetail.html',
 	  controller : 'basicGrammarDetailController'
+	})
+	.when("/learn-type/:idLesionDetail", {
+	  templateUrl: 'view/Type/_type.html',
+	  controller : 'typeController'
+	})
+	.when("/hoc-bai/:idLesionDetail/:idType/:order", {
+	  templateUrl: 'view/Learn/_learn.html',
+	  controller : 'learnController'
+	})
+	.when("/question/:idLesionDetail/:idType/:order", {
+	  templateUrl: 'view/Question/_question.html',
+	  controller : 'questionController'
 	}).otherwise({
 	 	templateUrl : 'view/maincontent/_mainContent.html'
 	 });

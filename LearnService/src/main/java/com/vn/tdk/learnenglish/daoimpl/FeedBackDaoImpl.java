@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.vn.tdk.learnenglish.dao.FeedBackDao;
 import com.vn.tdk.learnenglish.entity.FeedBack;
-import com.vn.tdk.learnenglish.entity.Lesson;
 @Repository
 public class FeedBackDaoImpl implements FeedBackDao {
 	private final static SessionFactory sessionFactory = new Configuration()

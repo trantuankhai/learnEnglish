@@ -16,29 +16,35 @@ public class FeedBack {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_feedBack")
 	private int id_feedBack;
-	@ManyToOne
-	@JoinColumn(name = "id_lesson")
-	private Lesson lesson;
 	@ManyToOne()
 	@JoinColumn(name = "Id_Acount")
 	private Account account;
 	@Column(name = "content_feedBack")
 	private String content_feedBack;
+	@ManyToOne
+	@JoinColumn(name = "id_basic_grammar_detail")
+	private BasicGrammarDetail grammarDetail;
 
 	public int getId_feedBack() {
 		return id_feedBack;
 	}
 
+	
+
+	public BasicGrammarDetail getGrammarDetail() {
+		return grammarDetail;
+	}
+
+
+
+	public void setGrammarDetail(BasicGrammarDetail grammarDetail) {
+		this.grammarDetail = grammarDetail;
+	}
+
+
+
 	public void setId_feedBack(int id_feedBack) {
 		this.id_feedBack = id_feedBack;
-	}
-
-	public Lesson getLesson() {
-		return lesson;
-	}
-
-	public void setLesson(Lesson lesson) {
-		this.lesson = lesson;
 	}
 
 	public Account getAccount() {
@@ -61,11 +67,16 @@ public class FeedBack {
 		super();
 	}
 
-	public FeedBack(int id_feedBack, Lesson lesson, Account account, String content_feedBack) {
+
+
+	public FeedBack(Account account, String content_feedBack, BasicGrammarDetail grammarDetail) {
 		super();
-		this.id_feedBack = id_feedBack;
-		this.lesson = lesson;
 		this.account = account;
 		this.content_feedBack = content_feedBack;
+		this.grammarDetail = grammarDetail;
 	}
+
+
+
+
 }

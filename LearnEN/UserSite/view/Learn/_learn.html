@@ -1,0 +1,42 @@
+<div style="margin-top: 150px" ng-controller="learnController">
+    <div class="theory-data-item  item-current " index="0" typedata="1" style="display: block;">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12 col-sm-offset-1">
+                <div class="theory-data-img">
+                    <div class="data-img-cover">
+                        <img alt="img" src="http://localhost:8010/image/{{listLearn.image_question}}">
+                        <span class="data-flag">Khái niệm</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-sm-7 col-xs-12">
+                <div class="theory-data-content">
+                    <p class="data-title">Khái niệm:</p>
+                    <p class="data-detail show-tooltip">
+                        {{listLearn.example_question}}
+                    </p>
+                    <div class="data-line"></div>
+                    <p class="data-example">Ví dụ: <a class="icon-sound sound-active" href="javascript:void(0)" sound_url="https://www.grammar.vn/assets/sounds/sound_exercise/C5QAUwe67oH1ZRvAbZ8OPH_sriOeooHv3SdYHr+AIus=.mp3"></a></p>
+                    <p class="data-sentence-en">{{listLearn.concept_suggest}}</p>
+                    <p class="data-sentence-vi">{{listLearn.vietSub_concept_suggest}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="theory-bottom">
+        <div class="bottom-cover">
+            <button class="button button-prev" ng-click="prevBaiHoc(listLearn.order)" ng-disabled="isDisable">Quay lại</button>
+            <div class="theory-list-button">
+                
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#feedback-fault" class="button-item item-1 btn-feedback"><span class="icon"></span>Báo lỗi</a>
+                <a href="#" data-toggle="modal" data-target="#modal-result-comment" class="button-item item-2"><span class="icon"></span>Thảo luận</a>
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#setting-modal" class="button-item item-3"><span class="icon"></span>Cài đặt</a>
+                <!--<a href="javascript:void(0)"  data-toggle="modal" data-target="#term-detail-modal" class="button-item item-5"><span class="icon"></span>Thuật ngữ</a>-->
+            </div>
+            <button class="button button-next" ng-click="nextBaiHoc(listLearn.order)">Tiếp theo</button>
+            
+        </div>
+    </div>
+</div>

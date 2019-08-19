@@ -3,33 +3,40 @@
 <hibernate-configuration>
 
 	<session-factory>
-        <!-- Database connection settings oracle -->
+		<!-- Database connection settings oracle -->
 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        <property name="hibernate.connection.url">jdbc:sqlserver://45.76.176.78:1433;databaseName=Learn_English_Db</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://45.76.176.78:1433;databaseName=Learn_English_Db</property>
 		<property name="hibernate.connection.username">sa</property>
-		<property name="hibernate.connection.password">duan@2</property>
+		<property name="hibernate.connection.password">duan@2</property> 
+<!-- 		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=Learn_English_Db</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">123</property> -->
 		<property name="hibernate.current_session_context_class">thread</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
 		<!-- insert UTF-8 -->
 		<property name="hibernate.connection.useUnicode">true</property>
 		<property name="hibernate.connection.characterEncoding">UTF-8</property>
 		<property name="hibernate.connection.charSet">UTF-8</property>
 		<!-- Mapping file -->
 		<mapping class="com.vn.tdk.learnenglish.entity.Account" />
-		<mapping class="com.vn.tdk.learnenglish.entity.Theme" />
 		<mapping class="com.vn.tdk.learnenglish.entity.ActiveUser" />
 		<mapping class="com.vn.tdk.learnenglish.entity.FeedBack" />
-		<mapping class="com.vn.tdk.learnenglish.entity.Lesson" />
-		<mapping class="com.vn.tdk.learnenglish.entity.Question" />
-		<mapping class="com.vn.tdk.learnenglish.entity.QuestionDetail" />
+
+		<mapping class="com.vn.tdk.learnenglish.entity.Theme" />
 		<mapping class="com.vn.tdk.learnenglish.entity.Vocabulary" />
-		<mapping class="com.vn.tdk.learnenglish.entity.VocabularyDetail" />
+		<mapping
+			class="com.vn.tdk.learnenglish.entity.VocabularyDetail" />
 		<mapping class="com.vn.tdk.learnenglish.entity.BasicGrammar" />
-		<mapping class="com.vn.tdk.learnenglish.entity.BasicGrammarDetail" />
+		<mapping
+			class="com.vn.tdk.learnenglish.entity.BasicGrammarDetail" />
+		<mapping class="com.vn.tdk.learnenglish.entity.Question" />
+		<mapping class="com.vn.tdk.learnenglish.entity.QuestionQuiz" />
+		<mapping class="com.vn.tdk.learnenglish.entity.Type" />
+		<mapping class="com.vn.tdk.learnenglish.entity.Lession_Type" />
 	</session-factory>
 </hibernate-configuration>
 

@@ -17,7 +17,6 @@ public class ThemeServicesImpl implements ThemeServices {
 
 	@Autowired
 	private ThemeDao themeDao;
-	@Autowired 
 
 	@Override
 	public Integer insert(Theme theme) {

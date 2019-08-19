@@ -44,4 +44,10 @@ public class QuestionServiceImpl implements QuestionService {
 		return null;
 	}
 
+	@Override
+	public List<Question> getListQuestionByIdLession(int id_lession) {
+		// TODO Auto-generated method stub
+		return questionDao.getListQuestionByIdLession(id_lession);
+	}
+
 }

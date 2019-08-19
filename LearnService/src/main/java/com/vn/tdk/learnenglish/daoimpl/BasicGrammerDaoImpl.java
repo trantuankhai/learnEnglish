@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.vn.tdk.learnenglish.dao.BasicGrammerDao;
 import com.vn.tdk.learnenglish.entity.BasicGrammar;
-import com.vn.tdk.learnenglish.entity.Lesson;
 @Repository
 public class BasicGrammerDaoImpl implements BasicGrammerDao {
 	private final static SessionFactory sessionFactory = new Configuration()

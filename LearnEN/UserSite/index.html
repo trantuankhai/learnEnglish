@@ -19,7 +19,7 @@
 						<img src="../Common/images/logo.png" alt="placeholder+image" class="float-right">
 					</a>
 				</div>
-				<div class=" col-md-8">
+				<div class=" col-md-6">
 					<div class="header__right ">
 						<div class="header__nav m-auto">
 							<ul class=" header__menu">
@@ -36,30 +36,51 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<img src="../Common/images/default-image-png-10.png" class="rounded-circle float-right" alt="Cinque Terre" width="40px" height="40px" >
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<div class="header__right ">
+						<div class="header__nav m-auto">
+							<ul class=" header__menu">
+								<li class="menu-item">
+									<a href="#tai-sao">Xin Chào: {{fullName}}</a>
+								</li>
+								<li class="menu-item">
+									<a href="#" id = "logOut">ĐĂNG XUẤT</a>
+								</li>
+	
+							</ul>
+						</div>
+					</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container-fluid k-main-content">
-			<div class="container" ng-view>
+			<div class="container-fluid k-main-content">
+				<div class="container" ng-view>
+				</div>
 			</div>
-		</div>
-		<script src="../Common/js/angular.js"></script>
-		<script src="../Common/js/angular-router.js"></script>
-		<script src="../Common/js/jquery.js"></script>
-		<script src="../Common/js/bootstrap.min.js"></script>
-		<script src="../Common/js/aos.js"></script>
-		<script src="../Login/view/login/loginServices.js"></script>
-		<script src="../UserSite/js/app/userSite.js"></script>
-		<script src="../UserSite/view/maincontent/mainContentService.js"></script>
-		<script src="../UserSite/view/maincontent/mainContentController.js"></script>
-		<script src="../UserSite/view/Verb/_verbService.js"></script>
-		<script src="../UserSite/view/Verb/_verbController.js"></script>
-		<script src="../UserSite/view/BasicGrammar/BasicGrammarService.js"></script>
-		<script src="../UserSite/view/BasicGrammar/BasicGrammarController.js"></script>
-		<script>
-		AOS.init();
-		</script>
-	</body>
-</html>
+			<script src="../Common/js/angular.js"></script>
+			<script src="../Common/js/angular-router.js"></script>
+			<script src="../Common/js/jquery.js"></script>
+			<script src="../Common/js/bootstrap.min.js"></script>
+			<script src="../Common/js/aos.js"></script>
+			<script src="../Login/view/login/loginServices.js"></script>
+			<script src="../UserSite/js/app/userSite.js"></script>
+			<script src="../UserSite/view/maincontent/mainContentService.js"></script>
+			<script src="../UserSite/view/maincontent/mainContentController.js"></script>
+			<script src="../UserSite/view/Verb/_verbService.js"></script>
+			<script src="../UserSite/view/Verb/_verbController.js"></script>
+			<script src="../UserSite/view/BasicGrammar/BasicGrammarService.js"></script>
+			<script src="../UserSite/view/BasicGrammar/BasicGrammarController.js"></script>
+			<script src="../UserSite/view/Type/Type.js"></script>
+			<script src="../UserSite/view/Learn/Learn.js"></script>
+			<script src="../UserSite/view/Question/question.js"></script>
+			<script>
+			AOS.init();
+			</script>
+		<script type="text/javascript">
+	      $('#logOut').click(function(event) {
+	        window.localStorage.removeItem('token');
+	        window.location.href = "../Login";
+	      });
+    </script>
+		</body>
+	</html>

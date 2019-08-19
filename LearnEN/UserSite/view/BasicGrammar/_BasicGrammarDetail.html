@@ -1,68 +1,14 @@
-<div class="product-detail-lesson" style="margin: 15px;">
-	<div class="lesson-list" ng-controller="basicGrammarDetailController">
+<div class="product-detail-lesson" style="margin: 15px;" ng-controller="basicGrammarDetailController">
+	<div class="lesson-list" ng-repeat="BasicGrammarDetail in listBasicGrammarDetail">
 		<div class="lesson-item effect-product">
 			<div class="lesson-image">
 				<span style="background-position: -354.8px -1048.2px"></span>
 			</div>
-			<p class="lesson-name">THÌ HIỆN TẠI ĐƠN</p>
+			<p class="lesson-name">{{BasicGrammarDetail.title}}</p>
 			<p class="lesson-result"></p>
 			<!--lesson button-->
-			<a href="https://www.grammar.vn/grammar-topic/ngu-phap-tieng-anh-mien-phi/present-simple-101" class="lesson-button button-letsgo">Học bài mới</a>
+			<a href="#!learn-type/{{BasicGrammarDetail.id_basic_grammar_detail}}" class="lesson-button button-letsgo">Học bài mới</a>
 		</div>
 	</div>
-	<div class="lesson-list" ng-controller="basicGrammarDetailController">
-		<div class="lesson-item effect-product">
-			<div class="lesson-image">
-				<span style="background-position: -354.8px -1048.2px"></span>
-			</div>
-			<p class="lesson-name">THÌ HIỆN TẠI ĐƠN</p>
-			<p class="lesson-result"></p>
-			<!--lesson button-->
-			<a href="https://www.grammar.vn/grammar-topic/ngu-phap-tieng-anh-mien-phi/present-simple-101" class="lesson-button button-letsgo">Học bài mới</a>
-		</div>
-	</div>
-	<div class="lesson-list" ng-controller="basicGrammarDetailController">
-		<div class="lesson-item effect-product">
-			<div class="lesson-image">
-				<span style="background-position: -354.8px -1048.2px"></span>
-			</div>
-			<p class="lesson-name">THÌ HIỆN TẠI ĐƠN</p>
-			<p class="lesson-result"></p>
-			<!--lesson button-->
-			<a href="https://www.grammar.vn/grammar-topic/ngu-phap-tieng-anh-mien-phi/present-simple-101" class="lesson-button button-letsgo">Học bài mới</a>
-		</div>
-	</div>
-	<div class="lesson-list" ng-controller="basicGrammarDetailController">
-		<div class="lesson-item effect-product">
-			<div class="lesson-image">
-				<span style="background-position: -354.8px -1048.2px"></span>
-			</div>
-			<p class="lesson-name">THÌ HIỆN TẠI ĐƠN</p>
-			<p class="lesson-result"></p>
-			<!--lesson button-->
-			<a href="https://www.grammar.vn/grammar-topic/ngu-phap-tieng-anh-mien-phi/present-simple-101" class="lesson-button button-letsgo">Học bài mới</a>
-		</div>
-	</div>
-	<div class="lesson-list" ng-controller="basicGrammarDetailController">
-		<div class="lesson-item effect-product">
-			<div class="lesson-image">
-				<span style="background-position: -354.8px -1048.2px"></span>
-			</div>
-			<p class="lesson-name">THÌ HIỆN TẠI ĐƠN</p>
-			<p class="lesson-result"></p>
-			<!--lesson button-->
-			<a href="https://www.grammar.vn/grammar-topic/ngu-phap-tieng-anh-mien-phi/present-simple-101" class="lesson-button button-letsgo">Học bài mới</a>
-		</div>
-	</div>
-	<div class="lesson-list" ng-controller="basicGrammarDetailController">
-		<div class="lesson-item effect-product">
-			<div class="lesson-image">
-				<span style="background-position: -354.8px -1048.2px"></span>
-			</div>
-			<p class="lesson-name">THÌ HIỆN TẠI ĐƠN</p>
-			<p class="lesson-result"></p>
-			<!--lesson button-->
-			<a href="https://www.grammar.vn/grammar-topic/ngu-phap-tieng-anh-mien-phi/present-simple-101" class="lesson-button button-letsgo">Học bài mới</a>
-		</div>
-	</div>
+	<div ng-show = "listBasicGrammarDetail == null" >Không có dữ liệu</div>
 </div>

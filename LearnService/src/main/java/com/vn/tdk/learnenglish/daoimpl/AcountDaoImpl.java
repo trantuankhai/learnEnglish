@@ -85,12 +85,8 @@ public class AcountDaoImpl implements AcountDao {
 		session = sessionFactory.openSession();
 		String hql = "from " + Account.class.getName();
 		try {
-			transaction = session.beginTransaction();
 			acount = session.createQuery(hql.toString()).list();
-			transaction.commit();
 		} catch (HibernateException e) {
-			if (transaction != null)
-				transaction.rollback();
 		} finally {
 			session.close();
 		}

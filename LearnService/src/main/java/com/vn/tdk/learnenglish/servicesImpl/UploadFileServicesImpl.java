@@ -19,20 +19,21 @@ import com.vn.tdk.learnenglish.util.Status;
 
 @Service
 public class UploadFileServicesImpl implements uploadService {
+
 	private final String URL_UPLOAD_FILE_IMAGE = System.getProperty("user.dir") + "/image";
 	private final String SYSTEM_URL = System.getProperty("user.dir")+"/images";
 
 	@Override
 	public String uploadFile(MultipartFile file) throws IOException {
 		Date date = new Date();
-		File file2 = new File(URL_UPLOAD_FILE_IMAGE);
+		File file2 = new File(SYSTEM_URL);
 		file2.mkdirs();
 		if (file.isEmpty()) {
 			return Status.INPUT_NULL;
 
 		} else {
 			String nameFile = date.getTime() + removeSpace(file.getOriginalFilename());
-			String uploadFilePath = URL_UPLOAD_FILE_IMAGE + "/" + nameFile;
+			String uploadFilePath = SYSTEM_URL + "/" + nameFile;
 			byte[] bytes = file.getBytes();
 			Path path = Paths.get(uploadFilePath);
 			Files.write(path, bytes);
