@@ -6,11 +6,13 @@ import java.net.MalformedURLException;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
-
 public interface uploadService {
 	public String uploadFile(MultipartFile file) throws IOException;
-	public String uploadFile(MultipartFile file) throws IOException;
 
-	public Resource getFile(String fileName) throws MalformedURLException;
+	public String uploadFileImportData(MultipartFile file) throws IOException;
+
+	public Resource getFileImage(String fileName) throws MalformedURLException;
+
+	public Resource getFileCsv(String fileName) throws MalformedURLException;
 
 }

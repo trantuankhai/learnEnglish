@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.vn.tdk.learnenglish.sevices.uploadService;
+
 @CrossOrigin
 @RestController
 public class UploadController {
@@ -24,8 +25,19 @@ public class UploadController {
 		return uploadService.uploadFile(file);
 	}
 
-	@GetMapping(value = "image/{link}")
-	public Resource getAvatar(@PathVariable("link") String link) throws IOException {
-		return uploadService.getFile(link);
+	@GetMapping(value = "image/{fileName}")
+	public Resource getAvatar(@PathVariable("fileName") String fileName) throws IOException {
+		return uploadService.getFileImage(fileName);
 	}
+
+	@PostMapping(value = "data")
+	public String uploadCsv(@RequestBody MultipartFile file) throws IOException {
+		return uploadService.uploadFileImportData(file);
+	}
+
+	@GetMapping(value = "data/{fileName}")
+	public Resource getCSV(@PathVariable("fileName") String fileName) throws IOException {
+		return uploadService.getFileCsv(fileName);
+	}
+
 }

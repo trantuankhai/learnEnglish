@@ -20,20 +20,20 @@ import com.vn.tdk.learnenglish.util.Status;
 @Service
 public class UploadFileServicesImpl implements uploadService {
 
-	private final String URL_UPLOAD_FILE_IMAGE = System.getProperty("user.dir") + "/image";
-	private final String SYSTEM_URL = System.getProperty("user.dir")+"/images";
+	private final String URL_UPLOAD_FILE_IMAGE = System.getProperty("user.dir") + "/images";
+	private final String URL_UPLOAD_FILE_CSV = System.getProperty("user.dir") + "/CsvFile";
 
 	@Override
 	public String uploadFile(MultipartFile file) throws IOException {
 		Date date = new Date();
-		File file2 = new File(SYSTEM_URL);
+		File file2 = new File(URL_UPLOAD_FILE_IMAGE);
 		file2.mkdirs();
 		if (file.isEmpty()) {
 			return Status.INPUT_NULL;
 
 		} else {
 			String nameFile = date.getTime() + removeSpace(file.getOriginalFilename());
-			String uploadFilePath = SYSTEM_URL + "/" + nameFile;
+			String uploadFilePath = URL_UPLOAD_FILE_IMAGE + "/" + nameFile;
 			byte[] bytes = file.getBytes();
 			Path path = Paths.get(uploadFilePath);
 			Files.write(path, bytes);
@@ -42,12 +42,12 @@ public class UploadFileServicesImpl implements uploadService {
 	}
 
 	@Override
-	public Resource getFile(String fileName) throws MalformedURLException {
+	public Resource getFileImage(String fileName) throws MalformedURLException {
 		if (!ConstanValue.NULL_VALUE.equals(fileName)) {
-			//File file = new File(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
-			File file = new File(SYSTEM_URL + "/" + fileName);
-			System.out.println(SYSTEM_URL + "/" + fileName);
-			//System.out.println(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
+			// File file = new File(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
+			File file = new File(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
+			System.out.println(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
+			// System.out.println(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
 			return new UrlResource(file.toURI());
 		} else {
 			return null;
@@ -59,6 +59,38 @@ public class UploadFileServicesImpl implements uploadService {
 		str = str.trim();
 		str = str.replaceAll("\\s+", "");
 		return str;
+	}
+
+	@Override
+	public String uploadFileImportData(MultipartFile file) throws IOException {
+		Date date = new Date();
+		File file2 = new File(URL_UPLOAD_FILE_CSV);
+		file2.mkdirs();
+		if (file.isEmpty()) {
+			return Status.INPUT_NULL;
+
+		} else {
+			String nameFile = date.getTime() + removeSpace(file.getOriginalFilename());
+			String uploadFilePath = URL_UPLOAD_FILE_CSV + "/" + nameFile;
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(uploadFilePath);
+			Files.write(path, bytes);
+			return uploadFilePath;
+		}
+	}
+
+	@Override
+	public Resource getFileCsv(String fileName) throws MalformedURLException {
+		if (!ConstanValue.NULL_VALUE.equals(fileName)) {
+			// File file = new File(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
+			File file = new File(URL_UPLOAD_FILE_CSV + "/" + fileName);
+			System.out.println(URL_UPLOAD_FILE_CSV + "/" + fileName);
+			// System.out.println(URL_UPLOAD_FILE_IMAGE + "/" + fileName);
+			return new UrlResource(file.toURI());
+		} else {
+			return null;
+		}
+
 	}
 
 }

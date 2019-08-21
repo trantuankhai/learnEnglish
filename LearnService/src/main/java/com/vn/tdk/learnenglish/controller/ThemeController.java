@@ -1,6 +1,9 @@
 package com.vn.tdk.learnenglish.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.imageio.IIOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.vn.tdk.learnenglish.entity.Theme;
 import com.vn.tdk.learnenglish.sevices.ThemeServices;
@@ -37,5 +41,9 @@ public class ThemeController {
 	@RequestMapping(value = "theme", method = RequestMethod.POST)
 	public Integer addTheme(@RequestBody Theme theme) {
 		return themeServices.insert(theme);
+	}
+	@RequestMapping(value = "importData", method = RequestMethod.POST)
+	public String addTheme(@RequestBody MultipartFile file) throws IOException {
+		return themeServices.importDataFromExcel(file);
 	}
 }
